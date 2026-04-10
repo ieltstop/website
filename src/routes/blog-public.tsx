@@ -35,7 +35,6 @@ export default function BlogPublic() {
           <h1
             id="blog-heading"
             className="mt-5 text-heading"
-            style={{ fontStyle: 'italic' }}
           >
             Blog &amp; Resources
           </h1>
@@ -59,7 +58,7 @@ export default function BlogPublic() {
                 <div className="w-16 h-16 rounded-lg border border-border bg-white flex items-center justify-center mx-auto mb-4">
                   <Newspaper className="w-8 h-8 text-primary" aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-semibold text-heading mb-2" style={{ fontStyle: 'italic' }}>No articles yet</h3>
+                <h3 className="text-xl font-semibold text-heading mb-2">No articles yet</h3>
                 <p className="text-muted-foreground">Check back soon for IELTS tips and strategies.</p>
               </div>
             </ScrollReveal>

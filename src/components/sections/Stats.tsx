@@ -15,7 +15,7 @@ export default function Stats() {
           {/* Left content */}
           <ScrollReveal>
             <span className="section-label">Why IELTS Top</span>
-            <h2 id="stats-heading" className="mt-5" style={{ fontStyle: 'italic' }}>
+            <h2 id="stats-heading" className="mt-5">
               Measurable results<br />
               backed by advanced AI
             </h2>

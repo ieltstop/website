@@ -62,7 +62,7 @@ export default function BandCalculatorPage() {
                 <span className="section-label">Free Tool</span>
                 <h1
                   id="calc-heading"
-                  className="mt-4 text-[26px] sm:text-[32px] md:text-[38px] leading-[1.15] font-heading font-extrabold italic text-heading"
+                  className="mt-4 text-[26px] sm:text-[32px] md:text-[38px] leading-[1.15] font-heading font-bold text-heading"
                 >
                   Band Score Calculator
                 </h1>
@@ -192,7 +192,7 @@ export default function BandCalculatorPage() {
                   style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2A2A45 100%)' }}
                 >
                   <p className="text-white/50 text-[12px] uppercase tracking-wider font-semibold mb-2">Next Step</p>
-                  <p className="text-white text-[17px] font-bold leading-snug mb-4" style={{ fontStyle: 'italic' }}>
+                  <p className="text-white text-[17px] font-bold leading-snug mb-4">
                     Get detailed AI feedback on your writing
                   </p>
                   <a
@@ -210,7 +210,7 @@ export default function BandCalculatorPage() {
           {/* How it works — clean inline */}
           <ScrollReveal delay={0.1}>
             <div className="mt-12 bg-white rounded-2xl border border-border shadow-card p-6 md:p-8">
-              <h2 className="text-[18px] font-bold text-heading mb-4" style={{ fontStyle: 'italic' }}>
+              <h2 className="text-[18px] font-bold text-heading mb-4">
                 How IELTS scoring works
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[14px] text-body leading-[1.7]">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router';
 import Section from '../components/ui/Section';
 import { PlusCircle, MinusCircle, ArrowRight } from 'lucide-react';
 
@@ -85,7 +85,6 @@ export default function FAQ() {
             <h1
               id="faq-heading"
               className="mt-5 text-heading"
-              style={{ fontStyle: 'italic' }}
             >
               Frequently Asked Questions
             </h1>
@@ -122,7 +121,6 @@ export default function FAQ() {
           <h2
             id="faq-cta-heading"
             className="text-white text-3xl md:text-4xl"
-            style={{ fontStyle: 'italic' }}
           >
             Ready to improve your IELTS score?
           </h2>

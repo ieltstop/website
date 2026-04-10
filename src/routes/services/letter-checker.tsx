@@ -1,76 +1,5 @@
-import { ArrowRight, CheckCircle, Lightbulb } from 'lucide-react';
+import { ArrowRight, CheckCircle, Lightbulb, Mail } from 'lucide-react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
-
-/* ─── Hero letter card stack ─────────────────────────────────────────── */
-
-function LetterCardStack() {
-  const cards = [
-    {
-      type: 'Formal',
-      accent: '#23A09C',
-      accentBg: 'rgba(35,160,156,0.10)',
-      preview: 'Dear Sir or Madam,',
-      body: 'I am writing to express my concern regarding...',
-      offset: { top: 0, left: 0, rotate: -2 },
-    },
-    {
-      type: 'Semi-formal',
-      accent: '#E8773A',
-      accentBg: 'rgba(232,119,58,0.10)',
-      preview: 'Dear Mr. Johnson,',
-      body: 'I am writing to let you know about a situation...',
-      offset: { top: 18, left: 12, rotate: 1 },
-    },
-    {
-      type: 'Informal',
-      accent: '#3B82F6',
-      accentBg: 'rgba(59,130,246,0.10)',
-      preview: 'Hi Sarah!',
-      body: 'Just heard the great news and had to write...',
-      offset: { top: 36, left: 24, rotate: 3 },
-    },
-  ];
-
-  return (
-    <div className="relative w-full max-w-[320px] mx-auto" style={{ height: 260 }}>
-      {cards.map((card, i) => (
-        <div
-          key={card.type}
-          className="absolute w-[270px] bg-white rounded-xl border border-[#EAEAF0] shadow-card overflow-hidden"
-          style={{
-            top: card.offset.top,
-            left: card.offset.left,
-            transform: `rotate(${card.offset.rotate}deg)`,
-            zIndex: i + 1,
-          }}
-        >
-          {/* Accent bar */}
-          <div className="h-[3px]" style={{ background: card.accent }} />
-          <div className="px-5 py-4">
-            <div className="flex items-center gap-2 mb-2.5">
-              <span
-                className="w-2 h-2 rounded-full"
-                style={{ background: card.accent }}
-              />
-              <span
-                className="text-[11px] font-bold tracking-wide uppercase"
-                style={{ color: card.accent }}
-              >
-                {card.type}
-              </span>
-            </div>
-            <p className="text-heading text-[14px] font-semibold leading-snug">
-              {card.preview}
-            </p>
-            <p className="mt-1 text-body text-[12px] leading-relaxed">
-              {card.body}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 /* ─── Letter type data ───────────────────────────────────────────────── */
 
@@ -166,7 +95,7 @@ export default function LetterCheckerPage() {
                 <span className="section-label">General Training Task 1</span>
                 <h1
                   id="letter-hero-heading"
-                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-extrabold italic max-w-xl"
+                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-bold max-w-xl"
                 >
                   Perfect your IELTS{' '}
                   <span className="text-primary">letters</span>
@@ -193,10 +122,28 @@ export default function LetterCheckerPage() {
               </div>
             </ScrollReveal>
 
-            {/* Right — stacked letter cards */}
+            {/* Right — letter feedback visual */}
             <ScrollReveal direction="right" delay={0.15}>
-              <div className="hidden lg:flex items-center justify-center">
-                <LetterCardStack />
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px]">
+                  <div className="bg-white rounded-xl border border-border px-6 py-4 shadow-card">
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-body/60">Your letter</span>
+                    <p className="mt-1.5 text-body text-[14px] leading-relaxed">
+                      "Dear Sir, I want to complain about the bad service I got at your hotel last week."
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center py-4">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  <div className="rounded-xl px-6 py-4 border border-primary/20" style={{ background: 'rgba(232,119,58,0.04)' }}>
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-primary">AI Feedback</span>
+                    <p className="mt-1.5 text-heading text-[14px] leading-relaxed font-medium">
+                      Tone: <span className="text-primary font-bold">Formal &#10003;</span> — Use "<span className="text-primary">I am writing to express my dissatisfaction</span>" for a stronger Band 7+ opening.
+                    </p>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -211,7 +158,7 @@ export default function LetterCheckerPage() {
               <span className="section-label">Letter Types</span>
               <h2
                 id="letter-types-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
               >
                 Three tones. One scoring system.
               </h2>
@@ -277,7 +224,7 @@ export default function LetterCheckerPage() {
                 <span className="section-label">Analysis</span>
                 <h2
                   id="letter-check-heading"
-                  className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                  className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
                 >
                   Every detail of your letter,
                   <br className="hidden lg:block" /> examined
@@ -360,7 +307,7 @@ export default function LetterCheckerPage() {
               <span className="section-label">Preview</span>
               <h2
                 id="letter-preview-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
               >
                 See what your feedback looks like
               </h2>
@@ -465,7 +412,7 @@ export default function LetterCheckerPage() {
             <div className="text-center max-w-xl mx-auto">
               <h2
                 id="letter-cta-heading"
-                className="text-heading text-[28px] md:text-[36px] leading-[1.15] font-heading font-extrabold italic"
+                className="text-heading text-[28px] md:text-[36px] leading-[1.15] font-heading font-bold"
               >
                 Start checking your letters
               </h2>

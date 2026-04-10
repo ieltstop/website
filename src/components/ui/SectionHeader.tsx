@@ -37,7 +37,7 @@ export default function SectionHeader({
       <div className="max-w-lg">
         {label && <span className="section-label">{label}</span>}
         {title && (
-          <h2 id={id} className="mt-5" style={{ fontStyle: 'italic' }}>
+          <h2 id={id} className="mt-5">
             {title}
           </h2>
         )}

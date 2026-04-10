@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router';
 import ScrollReveal from '../components/ui/ScrollReveal';
 import {
   Check,
@@ -174,7 +174,7 @@ export default function Pricing() {
             <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
               <h1
                 id="pricing-heading"
-                className="text-heading text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-extrabold italic"
+                className="text-heading text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-bold"
               >
                 Choose Your Plan
               </h1>
@@ -215,7 +215,7 @@ export default function Pricing() {
                       </span>
                     )}
 
-                    <h3 className="text-heading text-[24px] font-bold" style={{ fontStyle: 'italic' }}>
+                    <h3 className="text-heading text-[24px] font-bold">
                       {plan.name}
                     </h3>
                     <p className="mt-2 text-[14px] text-muted-foreground leading-relaxed min-h-[40px]">
@@ -286,7 +286,7 @@ export default function Pricing() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">FAQ</span>
-              <h2 id="pricing-faq-heading" className="mt-5" style={{ fontStyle: 'italic' }}>
+              <h2 id="pricing-faq-heading" className="mt-5">
                 Frequently Asked Questions
               </h2>
               <p className="mt-3 text-muted-foreground text-[16px]">
@@ -316,7 +316,6 @@ export default function Pricing() {
               <h2
                 id="pricing-cta-heading"
                 className="text-white text-[30px] md:text-[38px] leading-[1.15]"
-                style={{ fontStyle: 'italic' }}
               >
                 Ready to Improve Your IELTS Score?
               </h2>

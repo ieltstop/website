@@ -157,7 +157,7 @@ export default function TestTypes() {
         <ScrollReveal>
           <div className="mb-14 text-center">
             <span className="section-label">Test Types</span>
-            <h2 id="test-types-heading" className="mt-5 italic">
+            <h2 id="test-types-heading" className="mt-5">
               Which IELTS test is right for you?
             </h2>
 

@@ -25,7 +25,7 @@ export default function TextEnhancerPage() {
                 <span className="section-label">Text Enhancer</span>
                 <h1
                   id="enhancer-hero-heading"
-                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-extrabold italic max-w-xl"
+                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-bold max-w-xl"
                 >
                   Transform Band&nbsp;5 writing into Band&nbsp;7+
                 </h1>
@@ -95,7 +95,7 @@ export default function TextEnhancerPage() {
               <span className="section-label">See the Difference</span>
               <h2
                 id="enhancer-transform-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
               >
                 One click. Completely transformed.
               </h2>
@@ -162,7 +162,7 @@ export default function TextEnhancerPage() {
               <span className="section-label">What Gets Enhanced</span>
               <h2
                 id="enhancer-what-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
               >
                 Three dimensions of improvement
               </h2>
@@ -220,7 +220,7 @@ export default function TextEnhancerPage() {
               <span className="section-label">How It Works</span>
               <h2
                 id="enhancer-steps-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-bold leading-tight"
               >
                 Three steps to better writing
               </h2>
@@ -266,7 +266,7 @@ export default function TextEnhancerPage() {
             <div className="text-center max-w-xl mx-auto">
               <h2
                 id="enhancer-cta-heading"
-                className="text-heading text-[28px] md:text-[36px] leading-[1.15] font-heading font-extrabold italic"
+                className="text-heading text-[28px] md:text-[36px] leading-[1.15] font-heading font-bold"
               >
                 Ready to upgrade your writing?
               </h2>

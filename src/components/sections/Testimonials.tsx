@@ -21,9 +21,6 @@ export default function Testimonials() {
             label="Testimonials"
             title={<>Real experiences<br />from real students</>}
             description="Direct feedback reflects our focus on accuracy, helping students feel confident about their scores and preparation journey."
-            ctaText="See all reviews"
-            ctaLink="https://app.ieltstop.com/samples"
-            ctaVariant="outline"
           />
         </ScrollReveal>
 

@@ -262,7 +262,7 @@ export default function TestDayGuidePage() {
         <div className="container-main pt-16 md:pt-20 pb-16 md:pb-20 text-center">
           <ScrollReveal>
             <span className="section-label">Test Preparation</span>
-            <h1 className="mt-4 text-[28px] sm:text-[36px] md:text-[44px] leading-[1.1] font-heading font-extrabold italic text-heading">
+            <h1 className="mt-4 text-[28px] sm:text-[36px] md:text-[44px] leading-[1.1] font-heading font-bold text-heading">
               Your Complete IELTS Test Day Guide
             </h1>
             <p className="mt-4 text-muted-foreground text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
@@ -292,7 +292,7 @@ export default function TestDayGuidePage() {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-heading to-heading/90 p-10 md:p-14 text-center">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(232,119,58,0.15),transparent_50%)]" />
               <div className="relative z-10">
-                <h2 className="text-white text-[22px] md:text-[28px] font-heading font-extrabold italic leading-tight">
+                <h2 className="text-white text-[22px] md:text-[28px] font-heading font-bold leading-tight">
                   Ready to Practice?
                 </h2>
                 <p className="mt-3 text-white/70 text-[15px] max-w-md mx-auto">

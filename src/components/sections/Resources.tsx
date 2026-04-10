@@ -19,7 +19,7 @@ const resources: ResourceItem[] = [
     description:
       'Study high-scoring Band 7, 8, and 9 examples with detailed examiner commentary.',
     cta: 'View Samples',
-    link: '/samples',
+    link: '/services/sample-answers',
   },
   {
     image:
@@ -28,7 +28,7 @@ const resources: ResourceItem[] = [
     description:
       'Stay updated with recent exam topics and practice with real IELTS questions.',
     cta: 'Browse Topics',
-    link: '/topics',
+    link: '/blog',
   },
   {
     image:
@@ -82,25 +82,14 @@ export default function Resources() {
                   <p className="mt-3 text-[14px] text-body leading-[1.7] flex-1">
                     {resource.description}
                   </p>
-                  {resource.link.startsWith('/samples') || resource.link.startsWith('/topics') ? (
-                    <a
-                      href={`https://app.ieltstop.com${resource.link}`}
-                      className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
-                      aria-label={`${resource.cta} — ${resource.title}`}
-                    >
-                      {resource.cta}
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  ) : (
-                    <Link
-                      to={resource.link}
-                      className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
-                      aria-label={`${resource.cta} — ${resource.title}`}
-                    >
-                      {resource.cta}
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  )}
+                  <Link
+                    to={resource.link}
+                    className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
+                    aria-label={`${resource.cta} — ${resource.title}`}
+                  >
+                    {resource.cta}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

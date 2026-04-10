@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router';
 import { ArrowRight, GraduationCap, MapPin } from 'lucide-react';
 import ScrollReveal from '../components/ui/ScrollReveal';
 
@@ -80,7 +80,7 @@ export default function StudyAbroadPage() {
         <div className="container-main pt-16 md:pt-20 pb-16 md:pb-20 text-center">
           <ScrollReveal>
             <span className="section-label">Explore Opportunities</span>
-            <h1 className="mt-4 text-[28px] sm:text-[36px] md:text-[44px] leading-[1.1] font-heading font-extrabold italic text-heading">
+            <h1 className="mt-4 text-[28px] sm:text-[36px] md:text-[44px] leading-[1.1] font-heading font-bold text-heading">
               Study Abroad with IELTS
             </h1>
             <p className="mt-4 text-muted-foreground text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
@@ -153,7 +153,7 @@ export default function StudyAbroadPage() {
                 { value: '48hrs', label: 'Fastest result delivery' },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-[28px] md:text-[34px] font-heading font-extrabold italic text-heading">
+                  <p className="text-[28px] md:text-[34px] font-heading font-extrabold text-heading">
                     {stat.value}
                   </p>
                   <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
@@ -171,7 +171,7 @@ export default function StudyAbroadPage() {
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-heading to-heading/90 p-10 md:p-16 text-center">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,119,58,0.2),transparent_50%)]" />
               <div className="relative z-10">
-                <h2 className="text-white text-[24px] md:text-[32px] font-heading font-extrabold italic leading-tight">
+                <h2 className="text-white text-[24px] md:text-[32px] font-heading font-bold leading-tight">
                   Start Preparing for Your Dream Destination
                 </h2>
                 <p className="mt-3 text-white/70 text-[15px] max-w-lg mx-auto">

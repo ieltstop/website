@@ -5,32 +5,30 @@ import ScrollReveal from '../../components/ui/ScrollReveal';
 
 function HeroFeedbackCard() {
   const criteria = [
-    { label: 'Task Achievement', pct: 83, color: '#E8773A' },
-    { label: 'Coherence & Cohesion', pct: 78, color: '#23A09C' },
-    { label: 'Lexical Resource', pct: 72, color: '#3B82F6' },
-    { label: 'Grammatical Range', pct: 78, color: '#8B5CF6' },
+    { label: 'Task Achievement', score: '7.5', pct: 83, color: '#E8773A' },
+    { label: 'Coherence', score: '7.0', pct: 78, color: '#23A09C' },
+    { label: 'Lexical', score: '6.5', pct: 72, color: '#3B82F6' },
+    { label: 'Grammar', score: '7.0', pct: 78, color: '#8B5CF6' },
   ];
   return (
     <div className="relative w-full max-w-[300px] mx-auto">
-      <div className="bg-white/[0.06] border border-white/[0.08] rounded-2xl backdrop-blur-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-[#EAEAF0] shadow-card overflow-hidden">
         {/* Card header */}
-        <div className="px-5 py-4 border-b border-white/[0.06] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-[11px] text-white/40 font-medium tracking-wide uppercase">
-              Overall Band
-            </span>
-          </div>
-          <span className="text-[28px] font-extrabold text-white">7.0</span>
+        <div className="px-5 py-4 border-b border-[#EAEAF0] flex items-center justify-between">
+          <span className="text-[11px] font-bold tracking-widest uppercase text-body/60">
+            Essay Score
+          </span>
+          <span className="text-[28px] font-extrabold text-primary">Band 7.0</span>
         </div>
         {/* Criteria bars */}
         <div className="px-5 py-5 space-y-4">
           {criteria.map((c) => (
             <div key={c.label}>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] text-white/45 font-medium">{c.label}</span>
+                <span className="text-[11px] text-body/60 font-medium">{c.label}</span>
+                <span className="text-[12px] font-bold text-heading">{c.score}</span>
               </div>
-              <div className="h-[6px] rounded-full bg-white/[0.08] overflow-hidden">
+              <div className="h-[6px] rounded-full bg-[#F7F7FB] overflow-hidden">
                 <div
                   className="h-full rounded-full"
                   style={{
@@ -43,10 +41,13 @@ function HeroFeedbackCard() {
             </div>
           ))}
         </div>
-      </div>
-      {/* Floating badge */}
-      <div className="absolute -top-3 -right-3 bg-primary text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg">
-        +2.5 band improvement
+        {/* Bottom badge */}
+        <div className="px-5 pb-4">
+          <div className="flex items-center gap-2">
+            <CheckCircle className="w-4 h-4 text-green-500" />
+            <span className="text-[12px] text-heading font-medium">Strong thesis statement</span>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -225,44 +226,44 @@ export default function EssayCheckerPage() {
   return (
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
-      <section className="bg-heading section-padding overflow-hidden">
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left */}
+      <section className="bg-bg-alt overflow-hidden" aria-labelledby="essay-hero-heading">
+        <div className="container-main section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
             <ScrollReveal direction="left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-[12px] text-white/50 font-semibold tracking-wide uppercase mb-6">
-                Writing Task 1 & 2
-              </span>
-              <h1 className="text-white text-[34px] sm:text-[42px] md:text-[50px] font-extrabold leading-[1.08]">
-                Get your essay
-                <br />
-                <span className="text-primary">scored</span> in seconds
-              </h1>
-              <p className="mt-5 text-[17px] text-[#9999AD] leading-relaxed max-w-lg">
-                Paste your IELTS Task 1 or Task 2 essay and receive examiner-level
-                feedback instantly — band score, criteria breakdown, and actionable
-                suggestions to push your score higher.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://app.ieltstop.com/essays"
-                  className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.3)]"
+              <div>
+                <span className="section-label">Writing Task 1 & 2</span>
+                <h1
+                  id="essay-hero-heading"
+                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-bold max-w-xl"
                 >
-                  Check Your Essay
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-                <a
-                  href="https://app.ieltstop.com/signup"
-                  className="inline-flex items-center h-[52px] px-8 border-2 border-white/15 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/[0.06] transition-colors"
-                >
-                  Sign Up Free
-                </a>
+                  Get your essay <span className="text-primary">scored</span> in seconds
+                </h1>
+                <p className="mt-5 text-body text-[17px] md:text-[19px] max-w-lg leading-relaxed">
+                  Paste your IELTS Task 1 or Task 2 essay and receive examiner-level
+                  feedback instantly — band score, criteria breakdown, and actionable
+                  suggestions to push your score higher.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                  <a
+                    href="https://app.ieltstop.com/essays"
+                    className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+                  >
+                    Check Your Essay
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="https://app.ieltstop.com/signup"
+                    className="inline-flex items-center h-[52px] px-8 border border-[#EAEAF0] text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
+                  >
+                    Sign Up Free
+                  </a>
+                </div>
               </div>
             </ScrollReveal>
 
             {/* Right — decorative feedback card */}
-            <ScrollReveal direction="right" delay={0.2}>
-              <div className="flex justify-center lg:justify-end">
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="hidden lg:flex items-center justify-center">
                 <HeroFeedbackCard />
               </div>
             </ScrollReveal>
@@ -296,7 +297,7 @@ export default function EssayCheckerPage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="section-label">Process</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 Three steps. No waiting.
               </h2>
             </div>
@@ -405,7 +406,7 @@ export default function EssayCheckerPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Preview</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 See what your feedback looks like
               </h2>
             </div>
@@ -425,7 +426,7 @@ export default function EssayCheckerPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">FAQ</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 Common questions
               </h2>
             </div>
@@ -452,7 +453,7 @@ export default function EssayCheckerPage() {
       <section className="section-padding bg-heading">
         <div className="container-main text-center">
           <ScrollReveal>
-            <h2 className="text-white text-[28px] md:text-[38px] font-extrabold leading-tight">
+            <h2 className="text-white text-[28px] md:text-[38px] font-bold leading-tight">
               Ready to check your essay?
             </h2>
             <p className="mt-4 text-[16px] text-[#9999AD] max-w-xl mx-auto leading-relaxed">

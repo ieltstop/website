@@ -53,7 +53,7 @@ export default function QuickActions() {
                     >
                       <Icon className={`w-7 h-7 ${item.iconColor}`} strokeWidth={1.8} />
                     </div>
-                    <h3 className="text-[20px] font-extrabold text-heading">{item.title}</h3>
+                    <h3 className="text-[20px] font-bold text-heading">{item.title}</h3>
                     <p className="mt-2 text-[14px] text-body leading-[1.7]">{item.description}</p>
                   </div>
                 );

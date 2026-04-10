@@ -23,7 +23,7 @@ export default function TrustBanner() {
 
             {/* Right content */}
             <div>
-              <h2 id="trust-heading" className="text-white" style={{ fontStyle: 'italic' }}>
+              <h2 id="trust-heading" className="text-white">
                 Trusted by modern<br />
                 students worldwide
               </h2>

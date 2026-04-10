@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
 
 /* ─── CSS-only chart visuals ──────────────────────────────────────────── */
@@ -123,45 +123,6 @@ function TableVisual() {
           ))}
         </div>
       ))}
-    </div>
-  );
-}
-
-/* ─── Hero bar chart decoration ───────────────────────────────────────── */
-
-function HeroBarChart() {
-  const bars = [
-    { h: 48, label: 'Q1' },
-    { h: 72, label: 'Q2' },
-    { h: 56, label: 'Q3' },
-    { h: 88, label: 'Q4' },
-  ];
-  return (
-    <div className="relative w-full max-w-[280px] mx-auto">
-      <div className="bg-white/[0.06] border border-white/[0.08] rounded-2xl p-6 backdrop-blur-sm">
-        <div className="flex items-center gap-2 mb-5">
-          <div className="w-2 h-2 rounded-full bg-primary" />
-          <span className="text-[11px] text-white/40 font-medium tracking-wide uppercase">
-            Annual Revenue ($M)
-          </span>
-        </div>
-        <div className="flex items-end justify-between gap-4 h-[120px]">
-          {bars.map((b) => (
-            <div key={b.label} className="flex flex-col items-center gap-2 flex-1">
-              <span className="text-[11px] text-white/50 font-semibold">{b.h}</span>
-              <div
-                className="w-full rounded-t-md bg-gradient-to-t from-primary to-primary/60"
-                style={{ height: `${b.h}%` }}
-              />
-              <span className="text-[10px] text-white/35 font-medium">{b.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* Floating annotation */}
-      <div className="absolute -top-3 -right-3 bg-primary text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg">
-        +22% growth
-      </div>
     </div>
   );
 }
@@ -296,44 +257,62 @@ export default function ReportCheckerPage() {
   return (
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
-      <section className="bg-heading section-padding overflow-hidden">
-        <div className="container-main">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="bg-bg-alt overflow-hidden">
+        <div className="container-main section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
             {/* Left */}
             <ScrollReveal direction="left">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-[12px] text-white/50 font-semibold tracking-wide uppercase mb-6">
-                Academic Task 1
-              </span>
-              <h1 className="text-white text-[34px] sm:text-[42px] md:text-[50px] font-extrabold leading-[1.08]">
-                Master Academic
-                <br />
-                <span className="text-primary">Task 1 Reports</span>
-              </h1>
-              <p className="mt-5 text-[17px] text-[#9999AD] leading-relaxed max-w-lg">
-                Sharpen your data description, chart analysis, and trend identification
-                skills with AI feedback calibrated to real IELTS examiner standards.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <a
-                  href="https://app.ieltstop.com/reports"
-                  className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.3)]"
-                >
-                  Check Your Report
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-                <a
-                  href="https://app.ieltstop.com/signup"
-                  className="inline-flex items-center h-[52px] px-8 border-2 border-white/15 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/[0.06] transition-colors"
-                >
-                  Sign Up Free
-                </a>
+              <div>
+                <span className="section-label">Academic Task 1</span>
+                <h1 className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-bold max-w-xl">
+                  Master Academic
+                  <br />
+                  <span className="text-primary">Task 1 Reports</span>
+                </h1>
+                <p className="mt-5 text-body text-[17px] md:text-[19px] max-w-lg leading-relaxed">
+                  Sharpen your data description, chart analysis, and trend identification
+                  skills with AI feedback calibrated to real IELTS examiner standards.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                  <a
+                    href="https://app.ieltstop.com/reports"
+                    className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+                  >
+                    Check Your Report
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="https://app.ieltstop.com/signup"
+                    className="inline-flex items-center h-[52px] px-8 border border-border text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
+                  >
+                    Sign Up Free
+                  </a>
+                </div>
               </div>
             </ScrollReveal>
 
-            {/* Right — decorative bar chart */}
-            <ScrollReveal direction="right" delay={0.2}>
-              <div className="flex justify-center lg:justify-end">
-                <HeroBarChart />
+            {/* Right — before/after report visual */}
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px]">
+                  <div className="bg-white rounded-xl border border-border px-6 py-4 shadow-card">
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-body/60">Your report</span>
+                    <p className="mt-1.5 text-body text-[14px] leading-relaxed">
+                      "The bar chart shows information about sales in three countries from 2010 to 2020."
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center py-4">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                      <FileText className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  <div className="rounded-xl px-6 py-4 border border-primary/20" style={{ background: 'rgba(232,119,58,0.04)' }}>
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-primary">AI Feedback</span>
+                    <p className="mt-1.5 text-heading text-[14px] leading-relaxed font-medium">
+                      Band <span className="text-primary font-bold">7.0</span> — Good overview, but add a <span className="text-primary">comparison of key trends</span> and use more <span className="text-primary">data-specific vocabulary</span>.
+                    </p>
+                  </div>
+                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -346,7 +325,7 @@ export default function ReportCheckerPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Chart Types</span>
-              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-bold leading-tight">
                 What you'll analyze
               </h2>
             </div>
@@ -416,7 +395,7 @@ export default function ReportCheckerPage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="section-label">Skills</span>
-              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-bold leading-tight">
                 Key skills we evaluate
               </h2>
             </div>
@@ -456,27 +435,27 @@ export default function ReportCheckerPage() {
       </section>
 
       {/* ── 5. CTA ─────────────────────────────────────────────────── */}
-      <section className="section-padding bg-heading">
+      <section className="section-padding bg-bg-alt">
         <div className="container-main text-center">
           <ScrollReveal>
-            <h2 className="text-white text-[28px] md:text-[38px] font-extrabold leading-tight">
+            <h2 className="text-heading text-[28px] md:text-[38px] font-bold leading-tight">
               Start analyzing your reports
             </h2>
-            <p className="mt-4 text-[16px] text-[#9999AD] max-w-xl mx-auto leading-relaxed">
+            <p className="mt-4 text-[16px] text-body max-w-xl mx-auto leading-relaxed">
               Get examiner-level feedback on every chart, graph, and table you
               describe. Know your band score before exam day.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="https://app.ieltstop.com/reports"
-                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.3)]"
+                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
               >
                 Check Your Report Now
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://app.ieltstop.com/signup"
-                className="inline-flex items-center h-[52px] px-8 border-2 border-white/15 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/[0.06] transition-colors"
+                className="inline-flex items-center h-[52px] px-8 border border-border text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
               >
                 Create Free Account
               </a>

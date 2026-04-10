@@ -146,62 +146,65 @@ export default function SpeakingAssessmentPage() {
   return (
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden section-padding"
-        style={{ background: 'linear-gradient(160deg, #1A1A2E 0%, #2A2A44 100%)' }}
-      >
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(232,119,58,0.12),transparent_60%)]" />
+      <section className="bg-bg-alt overflow-hidden">
+        <div className="container-main section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
+            {/* Left */}
+            <ScrollReveal direction="left">
+              <div>
+                <span className="section-label">Speaking Assessment</span>
+                <h1 className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-bold max-w-xl">
+                  AI Speaking
+                  <br />
+                  <span className="text-primary">Assessment</span>
+                </h1>
+                <p className="mt-5 text-body text-[17px] md:text-[19px] max-w-lg leading-relaxed">
+                  Record your IELTS speaking responses and receive instant, criterion-level
+                  feedback on pronunciation, fluency, grammar, and vocabulary.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                  <a
+                    href="https://app.ieltstop.com/speaking"
+                    className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+                  >
+                    Try Speaking Assessment
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="https://app.ieltstop.com/signup"
+                    className="inline-flex items-center h-[52px] px-8 border border-border text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
+                  >
+                    Sign Up Free
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
 
-        <div className="container-main relative z-10 text-center">
-          <ScrollReveal>
-            {/* Mic */}
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/15 border border-primary/20 mb-7">
-              <Mic className="w-9 h-9 text-primary" />
-            </div>
-
-            <h1 className="text-white text-[34px] sm:text-[44px] md:text-[54px] font-extrabold leading-[1.08] max-w-3xl mx-auto">
-              AI Speaking
-              <br />
-              <span className="text-primary">Assessment</span>
-            </h1>
-
-            <p className="mt-5 text-white/55 text-[17px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
-              Record your IELTS speaking responses and receive instant, criterion-level
-              feedback on pronunciation, fluency, grammar, and vocabulary.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="https://app.ieltstop.com/speaking"
-                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.35)]"
-              >
-                Try Speaking Assessment
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="https://app.ieltstop.com/signup"
-                className="inline-flex items-center h-[52px] px-8 border border-white/20 text-white/70 text-[15px] font-semibold rounded-lg hover:bg-white/[0.05] transition-colors"
-              >
-                Sign Up Free
-              </a>
-            </div>
-
-            {/* Part badges */}
-            <div className="mt-10 flex items-center justify-center gap-3">
-              {['Part 1', 'Part 2', 'Part 3'].map((p) => (
-                <span
-                  key={p}
-                  className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-[12px] text-white/45 font-semibold tracking-wide"
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
-
-            {/* Waveform */}
-            <Waveform barCount={48} className="mt-10 opacity-60" />
-          </ScrollReveal>
+            {/* Right — speaking feedback visual */}
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px]">
+                  <div className="bg-white rounded-xl border border-border px-6 py-4 shadow-card">
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-body/60">Your response</span>
+                    <p className="mt-1.5 text-body text-[14px] leading-relaxed italic">
+                      "I think that... um... technology is very... uh... important for education because..."
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-center py-4">
+                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                      <Mic className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  <div className="rounded-xl px-6 py-4 border border-primary/20" style={{ background: 'rgba(232,119,58,0.04)' }}>
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-primary">AI Feedback</span>
+                    <p className="mt-1.5 text-heading text-[14px] leading-relaxed font-medium">
+                      Band <span className="text-primary font-bold">6.0</span> — Reduce <span className="text-primary">hesitation markers</span>. Try: "Technology plays a <span className="text-primary">crucial role</span> in modern education."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -211,7 +214,7 @@ export default function SpeakingAssessmentPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Full Test Coverage</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 The 3 parts of the speaking test
               </h2>
             </div>
@@ -260,7 +263,7 @@ export default function SpeakingAssessmentPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Analysis</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 What we analyze
               </h2>
             </div>
@@ -285,7 +288,7 @@ export default function SpeakingAssessmentPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Process</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 How it works
               </h2>
             </div>
@@ -327,7 +330,7 @@ export default function SpeakingAssessmentPage() {
           <ScrollReveal>
             <div className="text-center mb-14">
               <span className="section-label">Official IELTS Criteria</span>
-              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight">
+              <h2 className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight">
                 Scoring criteria
               </h2>
               <p className="mt-4 text-[15px] text-[#555568] max-w-xl mx-auto leading-relaxed">
@@ -368,37 +371,31 @@ export default function SpeakingAssessmentPage() {
       </section>
 
       {/* ── 6. CTA ─────────────────────────────────────────────────── */}
-      <section
-        className="section-padding relative overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #1A1A2E 0%, #2A2A44 100%)' }}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(232,119,58,0.1),transparent_60%)]" />
-        <div className="container-main relative z-10 text-center">
+      <section className="section-padding bg-bg-alt">
+        <div className="container-main text-center">
           <ScrollReveal>
-            <h2 className="text-white text-[28px] md:text-[38px] font-extrabold leading-tight">
+            <h2 className="text-heading text-[28px] md:text-[38px] font-bold leading-tight">
               Start your speaking practice
             </h2>
-            <p className="mt-4 text-[16px] text-white/45 max-w-xl mx-auto leading-relaxed">
+            <p className="mt-4 text-[16px] text-body max-w-xl mx-auto leading-relaxed">
               Get instant AI feedback on pronunciation, fluency, grammar, and
               vocabulary. Walk into your exam with confidence.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href="https://app.ieltstop.com/speaking"
-                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.35)]"
+                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
               >
                 Start Speaking Practice
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://app.ieltstop.com/signup"
-                className="inline-flex items-center h-[52px] px-8 border border-white/20 text-white/70 text-[15px] font-semibold rounded-lg hover:bg-white/[0.05] transition-colors"
+                className="inline-flex items-center h-[52px] px-8 border border-border text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
               >
                 Create Free Account
               </a>
             </div>
-
-            <Waveform barCount={40} className="mt-12 opacity-40" />
           </ScrollReveal>
         </div>
       </section>

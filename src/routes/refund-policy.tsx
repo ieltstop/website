@@ -104,7 +104,6 @@ export default function RefundPolicy() {
             <h1
               id="refund-heading"
               className="mt-5 text-heading"
-              style={{ fontStyle: 'italic' }}
             >
               Refund Policy
             </h1>

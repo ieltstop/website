@@ -62,7 +62,6 @@ export default function Contact() {
           <h1
             id="contact-heading"
             className="mt-5 text-heading"
-            style={{ fontStyle: 'italic' }}
           >
             We are here to help
           </h1>
@@ -110,7 +109,6 @@ export default function Contact() {
               <h2
                 id="contact-form-heading"
                 className="text-heading text-2xl md:text-3xl mb-2"
-                style={{ fontStyle: 'italic' }}
               >
                 Send us a message
               </h2>
@@ -207,7 +205,6 @@ export default function Contact() {
 
                 <h3
                   className="text-heading text-xl font-semibold mb-2"
-                  style={{ fontStyle: 'italic' }}
                 >
                   Available worldwide
                 </h3>
@@ -253,7 +250,6 @@ export default function Contact() {
               <h2
                 id="contact-cta-heading"
                 className="text-white text-3xl md:text-4xl leading-tight"
-                style={{ fontStyle: 'italic' }}
               >
                 Start your IELTS preparation today.
               </h2>
@@ -295,7 +291,6 @@ export default function Contact() {
             <div className="bg-white rounded-2xl p-8 md:p-10 shadow-elevated">
               <h3
                 className="text-heading text-2xl font-semibold"
-                style={{ fontStyle: 'italic' }}
               >
                 Get a free consultation
               </h3>

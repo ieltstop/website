@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-
+import { Link } from 'react-router';
 import { ArrowRight, Zap, BarChart3, ShieldCheck, Star } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
 import heroStudent from '@/assets/hero-student.png';
+import heroBg from '@/assets/hero-bg.jpeg';
 
 /* ── Animated counter stats ── */
 const stats = [
@@ -69,9 +70,9 @@ const rotatingLines = [
 ];
 
 const features = [
-  { icon: Zap, title: 'Instant Band Scores', description: 'Paste your essay, get an accurate IELTS band score within seconds — not days.', link: '/essays' },
-  { icon: BarChart3, title: 'Detailed Feedback', description: 'Task Achievement, Coherence, Vocabulary, and Grammar — scored on all 4 criteria.', link: '/essays' },
-  { icon: ShieldCheck, title: 'Track Your Progress', description: 'See your scores improve over time with personalized analytics and tips.', link: '/signup' },
+  { icon: Zap, title: 'Instant Band Scores', description: 'Paste your essay, get an accurate IELTS band score within seconds — not days.', link: '/services/essay-checker' },
+  { icon: BarChart3, title: 'Detailed Feedback', description: 'Task Achievement, Coherence, Vocabulary, and Grammar — scored on all 4 criteria.', link: '/services/report-checker' },
+  { icon: ShieldCheck, title: 'Track Your Progress', description: 'See your scores improve over time with personalized analytics and tips.', link: '/services/essay-checker' },
 ];
 
 /* Mock band score card shown on the right */
@@ -154,19 +155,32 @@ export default function Hero() {
 
   return (
     <section className="relative" aria-labelledby="hero-heading">
-      {/* Hero — light background with student photo */}
-      <div className="relative bg-bg-alt overflow-hidden">
-        <div className="container-main relative z-10 pt-10 md:pt-16 lg:pt-20 pb-32 md:pb-40">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center">
-            {/* Left — Text */}
-            <ScrollReveal direction="left">
-              <span className="section-label">
+      {/* Hero — background image with dark overlay */}
+      <div className="relative overflow-hidden">
+        {/* Background image + overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={heroBg}
+            alt=""
+            role="presentation"
+            className="w-full h-auto object-cover object-center absolute bottom-0"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-black/80" />
+        </div>
+
+        <div className="container-main relative z-10 pt-16 md:pt-24 lg:pt-28 pb-40 md:pb-52">
+          <div className="max-w-2xl">
+            {/* Content */}
+            <ScrollReveal direction="up">
+              <span className="section-label-dark">
                 AI-Powered IELTS Preparation
               </span>
 
               <h1
                 id="hero-heading"
-                className="mt-6 text-heading text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-extrabold"
+                className="mt-6 text-white text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-bold"
               >
                 Get Your IELTS<br />
                 <span
@@ -185,7 +199,7 @@ export default function Hero() {
                 Get Your IELTS Band Score in Seconds, Essay Feedback Instantly, Speaking Score with AI, Writing Tips that Work
               </span>
 
-              <p className="mt-5 text-body text-[17px] max-w-[480px] leading-[1.75]">
+              <p className="mt-5 text-white/70 text-[17px] max-w-[480px] leading-[1.75]">
                 Paste your essay. Our AI scores it on all 4 IELTS criteria and tells you
                 exactly how to improve. No signup required for your first check.
               </p>
@@ -200,53 +214,28 @@ export default function Hero() {
                 </a>
                 <a
                   href="https://app.ieltstop.com/samples"
-                  className="inline-flex items-center h-[54px] px-8 border-2 border-border text-heading text-[15px] font-semibold rounded-lg hover:border-heading transition-all duration-200"
+                  className="inline-flex items-center h-[54px] px-8 border-2 border-white/20 text-white text-[15px] font-semibold rounded-lg hover:bg-white/10 transition-all duration-200"
                 >
                   View Sample Scores
                 </a>
               </div>
 
-              <div className="mt-4 flex items-center gap-2 text-body text-[13px]">
-                <ShieldCheck className="w-4 h-4 text-success" />
+              <div className="mt-4 flex items-center gap-2 text-white/50 text-[13px]">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 <span>7-day money-back guarantee &middot; No credit card needed</span>
               </div>
 
-              {/* Stats row */}
-              <div ref={useRef<HTMLDivElement>(null)} className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-5">
-                {stats.map((s) => (
-                  <div key={s.label} className="text-left">
-                    <p className="text-heading text-[22px] sm:text-[26px] font-extrabold font-heading leading-none tabular-nums">
-                      <AnimatedStatValue value={s.value} decimals={s.decimals || 0} suffix={s.suffix} />
-                    </p>
-                    <p className="mt-1 text-body text-[12px] font-medium">{s.label}</p>
-                  </div>
-                ))}
-              </div>
             </ScrollReveal>
 
-            {/* Right — Student photo + floating band score card */}
-            <ScrollReveal direction="right" delay={0.15} className="hidden lg:block">
-              <div className="relative flex justify-center">
-                {/* Student image */}
-                <img
-                  src={heroStudent}
-                  alt="IELTS student preparing for exam"
-                  className="relative z-10 w-[420px] h-auto object-contain drop-shadow-lg"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-                {/* Floating band score card */}
-                <div className="absolute top-8 -right-4 z-20">
-                  <BandScoreCard />
-                </div>
-                {/* Decorative background circle */}
-                <div
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full opacity-40"
-                  style={{ background: 'radial-gradient(circle, rgba(232,119,58,0.12) 0%, transparent 70%)' }}
-                  aria-hidden="true"
-                />
-              </div>
-            </ScrollReveal>
+            {/* Right — Student photo */}
+            <div className="hidden lg:block absolute right-0 xl:right-[2%] bottom-0 top-0 z-[5] pointer-events-none">
+              <img
+                src={heroStudent}
+                alt="IELTS student preparing for exam"
+                className="h-full w-auto object-contain object-bottom"
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -264,8 +253,8 @@ export default function Hero() {
               </div>
               <h3 className="text-[17px] font-bold text-heading leading-snug">{f.title}</h3>
               <p className="mt-2.5 text-[14px] text-body leading-[1.7]">{f.description}</p>
-              <a
-                href={`https://app.ieltstop.com${f.link}`}
+              <Link
+                to={f.link}
                 className="group/cta mt-4 inline-flex items-center text-[13px] font-bold text-heading hover:text-primary transition-colors duration-200 overflow-hidden"
                 aria-label={`Learn more about ${f.title}`}
               >
@@ -276,7 +265,7 @@ export default function Hero() {
                 <span className="w-5 overflow-hidden group-hover/cta:w-0 transition-all duration-300 flex justify-end ml-1">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

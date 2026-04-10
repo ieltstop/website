@@ -98,7 +98,6 @@ export default function TermsConditions() {
             <h1
               id="terms-heading"
               className="mt-5 text-heading"
-              style={{ fontStyle: 'italic' }}
             >
               Terms &amp; Conditions
             </h1>

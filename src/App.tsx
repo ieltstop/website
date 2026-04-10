@@ -1,5 +1,14 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
+import { useEffect } from "react";
 import PublicLayout from "./components/layout/public-layout";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 import HomePage from "./routes/home";
 import PricingPage from "./routes/pricing";
 import FAQPage from "./routes/faq";
@@ -21,6 +30,8 @@ import SampleAnswersPage from "./routes/services/sample-answers";
 
 export default function App() {
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
@@ -43,5 +54,6 @@ export default function App() {
         <Route path="/services/sample-answers" element={<SampleAnswersPage />} />
       </Route>
     </Routes>
+    </>
   );
 }

@@ -69,7 +69,7 @@ export default function WhyChoose() {
 
           {/* -- Right: Copy -- */}
           <ScrollReveal direction="right" delay={0.1}>
-            <h2 id="why-heading" className="text-[40px] md:text-[48px]" style={{ fontStyle: 'italic' }}>
+            <h2 id="why-heading" className="text-[40px] md:text-[48px]">
               Why Choose<br />
               <span className="text-primary" style={{ textDecoration: 'underline', textDecorationColor: '#E8773A40', textUnderlineOffset: '6px' }}>IELTS Top</span>
             </h2>

@@ -37,7 +37,7 @@ export default function ThreeSteps() {
           <ScrollReveal direction="right" delay={0.1}>
             <div>
               <span className="section-label">About IELTS Top</span>
-              <h2 id="about-heading" className="mt-5" style={{ fontStyle: 'italic' }}>
+              <h2 id="about-heading" className="mt-5">
                 AI scoring built for<br />
                 modern IELTS prep
               </h2>
@@ -60,10 +60,10 @@ export default function ThreeSteps() {
               </ul>
 
               <a
-                href="https://app.ieltstop.com/essays"
+                href="https://app.ieltstop.com/signup"
                 className="group mt-9 inline-flex items-center gap-2.5 h-[48px] px-7 bg-primary text-white text-[14px] font-bold rounded-md hover:bg-primary-hover transition-all shadow-[0_4px_12px_rgba(232,119,58,0.25)]"
               >
-                Read about us
+                Get Started Free
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>

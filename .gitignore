@@ -3,3 +3,4 @@ dist
 .env
 .env.local
 src/assets/hero-student.png
+src/assets/hero-bg.jpeg

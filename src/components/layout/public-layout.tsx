@@ -79,25 +79,26 @@ const RESOURCES: ServiceLink[] = [
 /* ────────────────────────────────────────────────────────────────────────── */
 
 const featureLinks = [
-  { label: 'Essay Checker', to: `${APP_URL}/essays`, external: true },
-  { label: 'Letter Checker', to: `${APP_URL}/letters`, external: true },
-  { label: 'Speech Analyzer', to: `${APP_URL}/speaking`, external: true },
-  { label: 'Report Checker', to: `${APP_URL}/reports`, external: true },
-  { label: 'Text Enhancer', to: `${APP_URL}/signup`, external: true },
+  { label: 'Essay Checker', to: '/services/essay-checker' },
+  { label: 'Letter Checker', to: '/services/letter-checker' },
+  { label: 'Speaking Assessment', to: '/services/speaking-assessment' },
+  { label: 'Report Checker', to: '/services/report-checker' },
+  { label: 'Text Enhancer', to: '/services/text-enhancer' },
+  { label: 'Sample Answers', to: '/services/sample-answers' },
 ];
 
 const resourceLinks = [
-  { label: 'Sample Essays', to: `${APP_URL}/samples`, external: true },
-  { label: 'Latest Topics', to: `${APP_URL}/topics`, external: true },
   { label: 'Blog', to: '/blog' },
+  { label: 'Band Calculator', to: '/band-calculator' },
   { label: 'Compare', to: '/compare' },
   { label: 'Test Day Guide', to: '/test-day-guide' },
   { label: 'Study Abroad', to: '/study-abroad' },
 ];
 
 const companyLinks = [
-  { label: 'About Us', to: '/#about' },
   { label: 'Contact', to: '/contact' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'Privacy Policy', to: '/privacy-policy' },
   { label: 'Terms & Conditions', to: '/terms-conditions' },
   { label: 'Refund Policy', to: '/refund-policy' },
@@ -132,7 +133,7 @@ function SmartLink({
   role?: string;
   'aria-label'?: string;
 }) {
-  if (external) {
+  if (external || to.startsWith('http')) {
     return (
       <a href={to} className={className} onClick={onClick} role={role} aria-label={ariaLabel}>
         {children}
@@ -508,7 +509,7 @@ function Footer() {
         <div className="container-main py-12 md:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
-              <h2 className="text-white text-[24px] md:text-[28px] font-bold" style={{ fontStyle: 'italic' }}>
+              <h2 className="text-white text-[24px] md:text-[28px] font-bold">
                 Stay ahead of your IELTS prep
               </h2>
               <p className="mt-2 text-[15px] text-[#8B8BA8] max-w-md">

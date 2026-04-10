@@ -19,7 +19,7 @@ export default function CTASection() {
             {/* Left — Info */}
             <div className="p-10 md:p-14">
               <span className="section-label">Get In Touch</span>
-              <h2 id="contact-heading" className="mt-5" style={{ fontStyle: 'italic' }}>
+              <h2 id="contact-heading" className="mt-5">
                 Let&rsquo;s help you hit<br />
                 your target band score
               </h2>

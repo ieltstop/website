@@ -1,5 +1,4 @@
 import {
-  BookOpen,
   ArrowRight,
   GraduationCap,
   Monitor,
@@ -94,75 +93,72 @@ export default function SampleAnswersPage() {
   return (
     <>
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden section-padding"
-        style={{ background: 'linear-gradient(160deg, #1A1A2E 0%, #2A2A44 100%)' }}
-        aria-labelledby="samples-hero-heading"
-      >
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(232,119,58,0.12),transparent_60%)]" />
-
-        <div className="container-main relative z-10 text-center">
-          <ScrollReveal>
-            {/* Icon */}
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/15 border border-primary/20 mb-7">
-              <BookOpen className="w-9 h-9 text-primary" />
-            </div>
-
-            <h1
-              id="samples-hero-heading"
-              className="text-white text-[34px] sm:text-[44px] md:text-[54px] font-extrabold leading-[1.08] max-w-3xl mx-auto"
-            >
-              High-Scoring
-              <br />
-              <span className="text-primary">Sample Answers</span>
-            </h1>
-
-            <p className="mt-5 text-white/55 text-[17px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
-              Study Band 7, 8, and 9 essays with detailed examiner commentary.
-              Learn exactly what makes a top-scoring IELTS Writing response.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="https://app.ieltstop.com/samples"
-                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.35)]"
-              >
-                Browse Sample Answers
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="https://app.ieltstop.com/samples"
-                className="inline-flex items-center h-[52px] px-8 border border-white/20 text-white/70 text-[15px] font-semibold rounded-lg hover:bg-white/[0.05] transition-colors"
-              >
-                View Free Samples
-              </a>
-            </div>
-
-            {/* Band badges */}
-            <div className="mt-10 flex items-center justify-center gap-3">
-              {[
-                { label: 'Band 7', color: '#E8773A' },
-                { label: 'Band 8', color: '#23A09C' },
-                { label: 'Band 9', color: '#16A34A' },
-              ].map((b) => (
-                <span
-                  key={b.label}
-                  className="inline-flex items-center px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide"
-                  style={{
-                    background: `${b.color}14`,
-                    border: `1px solid ${b.color}30`,
-                    color: b.color,
-                  }}
+      <section className="bg-bg-alt overflow-hidden" aria-labelledby="samples-hero-heading">
+        <div className="container-main section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
+            <ScrollReveal direction="left">
+              <div>
+                <span className="section-label">Sample Answers</span>
+                <h1
+                  id="samples-hero-heading"
+                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-bold max-w-xl"
                 >
-                  {b.label}
-                </span>
-              ))}
-            </div>
+                  High-scoring <span className="text-primary">sample answers</span>
+                </h1>
+                <p className="mt-5 text-body text-[17px] md:text-[19px] max-w-lg leading-relaxed">
+                  Study Band 7, 8, and 9 essays with detailed examiner commentary.
+                  Learn exactly what makes a top-scoring IELTS Writing response.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                  <a
+                    href="https://app.ieltstop.com/samples"
+                    className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+                  >
+                    Browse Sample Answers
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="https://app.ieltstop.com/samples"
+                    className="inline-flex items-center h-[52px] px-8 border border-[#EAEAF0] text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
+                  >
+                    View Free Samples
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
 
-            {/* Decorative accent */}
-            <PageLines className="mt-10 opacity-60" />
-          </ScrollReveal>
+            {/* Right — sample essay preview */}
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px]">
+                  <div className="bg-white rounded-xl border border-border px-6 py-5 shadow-card">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-primary text-[14px] font-extrabold">9</span>
+                      </div>
+                      <div>
+                        <p className="text-[13px] font-bold text-heading">Band 9 Sample</p>
+                        <p className="text-[11px] text-body">Education & Technology</p>
+                      </div>
+                    </div>
+                    <p className="text-[13px] text-body leading-relaxed border-t border-border pt-3">
+                      "The proliferation of digital technology in educational institutions has fundamentally <span className="text-primary font-semibold">transformed pedagogical approaches</span>..."
+                    </p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-green-50 text-green-600">Strong thesis &#10003;</span>
+                      <span className="text-[10px] font-bold px-2 py-1 rounded-full bg-primary/10 text-primary">Band 9 vocab &#10003;</span>
+                    </div>
+                  </div>
+                  <div className="rounded-xl px-6 py-4 border border-border mt-3 shadow-card bg-white">
+                    <p className="text-[12px] font-bold text-heading mb-1">Examiner Commentary</p>
+                    <p className="text-[12px] text-body leading-relaxed">
+                      "Excellent use of <span className="text-primary font-semibold">cohesive devices</span> and <span className="text-primary font-semibold">topic-specific vocabulary</span>."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -174,7 +170,7 @@ export default function SampleAnswersPage() {
               <span className="section-label">Band Levels</span>
               <h2
                 id="samples-bands-heading"
-                className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight"
+                className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight"
               >
                 Samples at every target score
               </h2>
@@ -238,7 +234,7 @@ export default function SampleAnswersPage() {
               <span className="section-label">Topic Library</span>
               <h2
                 id="samples-topics-heading"
-                className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight"
+                className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight"
               >
                 Browse by topic
               </h2>
@@ -274,7 +270,7 @@ export default function SampleAnswersPage() {
                 <span className="section-label">Deep Analysis</span>
                 <h2
                   id="samples-learn-heading"
-                  className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-extrabold leading-tight"
+                  className="mt-5 text-[#1A1A2E] text-[28px] md:text-[36px] font-bold leading-tight"
                 >
                   Every sample includes examiner commentary
                 </h2>
@@ -363,7 +359,7 @@ export default function SampleAnswersPage() {
           <ScrollReveal>
             <h2
               id="samples-cta-heading"
-              className="text-white text-[28px] md:text-[38px] font-extrabold leading-tight"
+              className="text-white text-[28px] md:text-[38px] font-bold leading-tight"
             >
               Start studying top-scoring essays
             </h2>

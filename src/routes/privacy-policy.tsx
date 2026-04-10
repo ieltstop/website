@@ -110,7 +110,6 @@ export default function PrivacyPolicy() {
             <h1
               id="privacy-heading"
               className="mt-5 text-heading"
-              style={{ fontStyle: 'italic' }}
             >
               Privacy Policy
             </h1>

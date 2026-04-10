@@ -263,8 +263,8 @@ export default function Hero() {
               </div>
               <h3 className="text-[17px] font-bold text-heading leading-snug">{f.title}</h3>
               <p className="mt-2.5 text-[14px] text-body leading-[1.7]">{f.description}</p>
-              <Link
-                to={f.link}
+              <a
+                href={`https://app.ieltstop.com${f.link}`}
                 className="group/cta mt-4 inline-flex items-center text-[13px] font-bold text-heading hover:text-primary transition-colors duration-200 overflow-hidden"
                 aria-label={`Learn more about ${f.title}`}
               >
@@ -275,7 +275,7 @@ export default function Hero() {
                 <span className="w-5 overflow-hidden group-hover/cta:w-0 transition-all duration-300 flex justify-end ml-1">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

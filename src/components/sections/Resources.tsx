@@ -82,14 +82,25 @@ export default function Resources() {
                   <p className="mt-3 text-[14px] text-body leading-[1.7] flex-1">
                     {resource.description}
                   </p>
-                  <Link
-                    to={resource.link}
-                    className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
-                    aria-label={`${resource.cta} — ${resource.title}`}
-                  >
-                    {resource.cta}
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  {resource.link.startsWith('/samples') || resource.link.startsWith('/topics') ? (
+                    <a
+                      href={`https://app.ieltstop.com${resource.link}`}
+                      className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
+                      aria-label={`${resource.cta} — ${resource.title}`}
+                    >
+                      {resource.cta}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={resource.link}
+                      className="mt-5 inline-flex items-center gap-2 h-10 px-5 bg-primary text-white text-[13px] font-bold rounded-md hover:bg-primary-hover transition-colors shadow-[0_4px_12px_rgba(232,119,58,0.25)] self-start"
+                      aria-label={`${resource.cta} — ${resource.title}`}
+                    >
+                      {resource.cta}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </ScrollReveal>

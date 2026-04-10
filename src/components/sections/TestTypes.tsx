@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback } from 'react';
-import { Link } from 'react-router';
 import {
   GraduationCap,
   Shield,
@@ -216,18 +215,18 @@ export default function TestTypes() {
                       {card.description}
                     </p>
                     <div className="mt-6 flex flex-col gap-3">
-                      <Link
-                        to={card.ctaLink}
+                      <a
+                        href={`https://app.ieltstop.com${card.ctaLink}`}
                         className="flex items-center justify-center h-11 w-full bg-primary text-white text-[14px] font-bold rounded-lg hover:bg-primary-hover transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                       >
                         Start Preparing
-                      </Link>
-                      <Link
-                        to={card.exploreLink}
+                      </a>
+                      <a
+                        href={`https://app.ieltstop.com${card.exploreLink}`}
                         className="flex items-center justify-center h-11 w-full border-2 border-border text-heading text-[14px] font-bold rounded-lg hover:border-heading transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
                       >
                         {card.exploreLabel}
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </ScrollReveal>

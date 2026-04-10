@@ -7,55 +7,9 @@ import {
   Type,
   CheckCircle2,
   PenLine,
-  Columns2,
+  ChevronRight,
 } from 'lucide-react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
-
-/* ─── Data ─────────────────────────────────────────────────────────────── */
-
-const steps = [
-  {
-    num: '01',
-    icon: ClipboardPaste,
-    title: 'Paste Your Text',
-    desc: 'Copy and paste your IELTS writing response — Task 1 or Task 2. Our editor accepts any length and format.',
-  },
-  {
-    num: '02',
-    icon: Wand2,
-    title: 'AI Enhances It',
-    desc: 'Our AI upgrades vocabulary, fixes grammar, improves sentence structure, and adjusts the tone to academic register.',
-  },
-  {
-    num: '03',
-    icon: BookOpen,
-    title: 'Review & Learn',
-    desc: 'Compare your original with the enhanced version side by side. Understand every change and learn patterns for your exam.',
-  },
-];
-
-const features = [
-  {
-    icon: Type,
-    title: 'Vocabulary Upgrade',
-    desc: 'Replaces basic words with Band 7+ alternatives while keeping your intended meaning intact.',
-  },
-  {
-    icon: CheckCircle2,
-    title: 'Grammar Polish',
-    desc: 'Fixes grammatical errors, improves sentence variety, and refines your writing without changing its meaning.',
-  },
-  {
-    icon: PenLine,
-    title: 'Style Improvement',
-    desc: 'Adjusts tone and register to match the academic writing style expected by IELTS examiners.',
-  },
-  {
-    icon: Columns2,
-    title: 'Side-by-Side View',
-    desc: 'Compare your original text alongside the enhanced version so you can see exactly what changed and why.',
-  },
-];
 
 /* ─── Page ─────────────────────────────────────────────────────────────── */
 
@@ -63,42 +17,198 @@ export default function TextEnhancerPage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2A2A45 100%)' }}
-        aria-labelledby="enhancer-hero-heading"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,119,58,0.15),transparent_50%)]" />
-        <div className="container-main relative z-10 pt-20 md:pt-28 pb-16 md:pb-24 text-center">
+      <section className="bg-bg-alt overflow-hidden" aria-labelledby="enhancer-hero-heading">
+        <div className="container-main section-padding">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 lg:gap-16 items-center">
+            <ScrollReveal direction="left">
+              <div>
+                <span className="section-label">Text Enhancer</span>
+                <h1
+                  id="enhancer-hero-heading"
+                  className="mt-5 text-heading text-[32px] sm:text-[42px] md:text-[52px] leading-[1.08] font-heading font-extrabold italic max-w-xl"
+                >
+                  Transform Band&nbsp;5 writing into Band&nbsp;7+
+                </h1>
+                <p className="mt-5 text-body text-[17px] md:text-[19px] max-w-lg leading-relaxed">
+                  Paste any IELTS response and watch our AI upgrade your vocabulary, fix grammar errors, and shift your tone to the academic register examiners reward.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row items-start gap-3">
+                  <a
+                    href="https://app.ieltstop.com/signup"
+                    className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+                  >
+                    Try Text Enhancer
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="https://app.ieltstop.com/signup"
+                    className="inline-flex items-center h-[52px] px-8 border border-[#EAEAF0] text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
+                  >
+                    See Examples
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Arrow visual */}
+            <ScrollReveal direction="right" delay={0.15}>
+              <div className="hidden lg:flex flex-col items-center justify-center">
+                <div className="relative w-full max-w-[320px]">
+                  {/* Basic label */}
+                  <div className="bg-white rounded-xl border border-[#EAEAF0] px-6 py-4 shadow-card">
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-body/60">Your writing</span>
+                    <p className="mt-1.5 text-body text-[14px] leading-relaxed">
+                      "The graph shows that sales went up a lot between 2010 and 2020."
+                    </p>
+                  </div>
+                  {/* Arrow */}
+                  <div className="flex items-center justify-center py-4">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, #E8773A 0%, #F5A623 100%)' }}
+                    >
+                      <Sparkles className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                  {/* Advanced label */}
+                  <div
+                    className="rounded-xl px-6 py-4 border border-primary/20"
+                    style={{ background: 'linear-gradient(135deg, rgba(232,119,58,0.06) 0%, rgba(245,166,35,0.06) 100%)' }}
+                  >
+                    <span className="text-[12px] font-bold tracking-widest uppercase text-primary">Enhanced</span>
+                    <p className="mt-1.5 text-heading text-[14px] leading-relaxed font-medium">
+                      "The graph <span className="text-primary">illustrates</span> a <span className="text-primary">significant upward trend</span> in sales figures <span className="text-primary">over the decade spanning</span> 2010 to 2020."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Transformation ── */}
+      <section className="py-16 md:py-24 bg-white" aria-labelledby="enhancer-transform-heading">
+        <div className="container-main">
           <ScrollReveal>
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/15 mb-6">
-              <Sparkles className="w-8 h-8 text-primary" />
-            </div>
-            <h1
-              id="enhancer-hero-heading"
-              className="text-white text-[30px] sm:text-[40px] md:text-[50px] leading-[1.1] font-heading font-extrabold italic max-w-3xl mx-auto"
-            >
-              AI Text Enhancer
-            </h1>
-            <p className="mt-5 text-white/65 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
-              Transform your IELTS writing from Band 5&ndash;6 to Band 7+ with AI-powered vocabulary upgrades, grammar corrections, and style improvements.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="https://app.ieltstop.com/signup"
-                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
+            <div className="text-center mb-12">
+              <span className="section-label">See the Difference</span>
+              <h2
+                id="enhancer-transform-heading"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
               >
-                Try Text Enhancer
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="https://app.ieltstop.com/signup"
-                className="inline-flex items-center h-[52px] px-8 border border-white/20 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/5 transition-all"
-              >
-                See Examples
-              </a>
+                One click. Completely transformed.
+              </h2>
             </div>
           </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="max-w-5xl mx-auto rounded-2xl border border-[#EAEAF0] overflow-hidden shadow-card">
+              {/* Two columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {/* Before column */}
+                <div className="border-b md:border-b-0 md:border-r border-[#EAEAF0]">
+                  <div className="px-6 py-3.5 border-b border-[#EAEAF0]" style={{ background: '#FEF2F2' }}>
+                    <span className="text-[13px] font-bold tracking-wide text-[#B91C1C] uppercase">Before &mdash; Band 5&ndash;6</span>
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <p className="text-body text-[15px] leading-[1.85]">
+                      Nowadays, many people think that technology is very important in education. Computers and the internet have changed the way students learn. Some people believe that online learning is good because students can study at home. However, other people think that going to school is better. I think both ways of learning are useful. In this essay, I will talk about the advantages and disadvantages of online learning.
+                    </p>
+                  </div>
+                </div>
+
+                {/* After column */}
+                <div>
+                  <div className="px-6 py-3.5 border-b border-[#EAEAF0]" style={{ background: 'rgba(232,119,58,0.08)' }}>
+                    <span className="text-[13px] font-bold tracking-wide text-primary uppercase">After &mdash; Band 7+</span>
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <p className="text-body text-[15px] leading-[1.85]">
+                      <mark className="bg-primary/10 text-heading px-0.5 rounded">In the contemporary era</mark>, <mark className="bg-primary/10 text-heading px-0.5 rounded">it is widely acknowledged</mark> that technology <mark className="bg-primary/10 text-heading px-0.5 rounded">plays a pivotal role</mark> in education. <mark className="bg-primary/10 text-heading px-0.5 rounded">Digital tools and connectivity</mark> have <mark className="bg-primary/10 text-heading px-0.5 rounded">fundamentally transformed</mark> pedagogical approaches. <mark className="bg-primary/10 text-heading px-0.5 rounded">Proponents of</mark> online learning <mark className="bg-primary/10 text-heading px-0.5 rounded">contend that</mark> it offers students the <mark className="bg-primary/10 text-heading px-0.5 rounded">flexibility to engage with materials</mark> remotely. <mark className="bg-primary/10 text-heading px-0.5 rounded">Conversely</mark>, <mark className="bg-primary/10 text-heading px-0.5 rounded">advocates of traditional education argue that</mark> classroom attendance <mark className="bg-primary/10 text-heading px-0.5 rounded">remains indispensable</mark>. This essay <mark className="bg-primary/10 text-heading px-0.5 rounded">examines both the merits and drawbacks</mark> of virtual learning <mark className="bg-primary/10 text-heading px-0.5 rounded">environments</mark>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats bar */}
+              <div className="border-t border-[#EAEAF0] bg-[#F7F7FB] px-6 md:px-8 py-5">
+                <div className="flex flex-wrap items-center gap-6 md:gap-10">
+                  <span className="text-[13px] font-bold text-heading uppercase tracking-wide">Changes made</span>
+                  <div className="flex flex-wrap gap-5 md:gap-8">
+                    {[
+                      { num: '12', label: 'vocabulary upgrades' },
+                      { num: '4', label: 'grammar fixes' },
+                      { num: '3', label: 'style improvements' },
+                    ].map((stat) => (
+                      <div key={stat.label} className="flex items-center gap-2">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-primary/10 text-primary text-[13px] font-extrabold">{stat.num}</span>
+                        <span className="text-body text-[13px]">{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── What Gets Enhanced ── */}
+      <section className="py-16 md:py-24 bg-bg-alt" aria-labelledby="enhancer-what-heading">
+        <div className="container-main">
+          <ScrollReveal>
+            <div className="text-center mb-14">
+              <span className="section-label">What Gets Enhanced</span>
+              <h2
+                id="enhancer-what-heading"
+                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
+              >
+                Three dimensions of improvement
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                icon: Type,
+                title: 'Vocabulary',
+                desc: 'Basic, repetitive words are swapped for precise Band 7+ alternatives that demonstrate lexical range, without changing your intended meaning.',
+                before: '"good"  "a lot of"',
+                after: '"beneficial"  "a substantial amount of"',
+              },
+              {
+                icon: CheckCircle2,
+                title: 'Grammar',
+                desc: 'Simple sentence patterns are restructured into complex and compound-complex forms that showcase grammatical range and accuracy.',
+                before: '"People think..."',
+                after: '"It is widely believed that..."',
+              },
+              {
+                icon: PenLine,
+                title: 'Style',
+                desc: 'Informal, conversational phrases are refined into the academic register that IELTS examiners expect and reward with higher scores.',
+                before: '"This essay will talk about..."',
+                after: '"This essay examines..."',
+              },
+            ].map((card, i) => (
+              <ScrollReveal key={card.title} delay={i * 0.12}>
+                <div className="bg-white rounded-2xl border border-[#EAEAF0] p-8 shadow-card hover:shadow-card-hover transition-all duration-300 h-full flex flex-col">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-5">
+                    <card.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-heading text-[20px] font-bold">{card.title}</h3>
+                  <p className="mt-2.5 text-body text-[14px] leading-relaxed flex-1">{card.desc}</p>
+                  {/* Example transformation */}
+                  <div className="mt-6 rounded-lg bg-[#F7F7FB] border border-[#EAEAF0] px-4 py-3.5 font-mono text-[13px] leading-relaxed">
+                    <div className="text-body/60 line-through">{card.before}</div>
+                    <div className="mt-1 text-primary font-semibold">{card.after}</div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -112,187 +222,75 @@ export default function TextEnhancerPage() {
                 id="enhancer-steps-heading"
                 className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
               >
-                Three Simple Steps
+                Three steps to better writing
               </h2>
-              <p className="mt-3 text-muted-foreground text-[16px] max-w-xl mx-auto">
-                Upgrade your writing in seconds, not hours.
-              </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {steps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 0.12}>
-                <div className="relative bg-white rounded-2xl border border-border p-8 text-center shadow-card hover:shadow-card-hover transition-all duration-300 h-full">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary text-[13px] font-bold mb-5">
-                    {step.num}
-                  </span>
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-bg-alt mb-4">
-                    <step.icon className="w-7 h-7 text-heading" />
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-0">
+              {[
+                { num: '1', icon: ClipboardPaste, title: 'Paste', desc: 'Copy your IELTS Task 1 or Task 2 response into the editor.' },
+                { num: '2', icon: Wand2, title: 'Enhance', desc: 'Our AI upgrades vocabulary, grammar, and style in seconds.' },
+                { num: '3', icon: BookOpen, title: 'Learn', desc: 'Review changes side by side and absorb the patterns.' },
+              ].map((step, i) => (
+                <ScrollReveal key={step.num} delay={i * 0.12} className="flex-1 flex items-center">
+                  <div className="flex items-center gap-0 flex-1">
+                    <div className="flex-1 text-center px-4 py-6">
+                      <div
+                        className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4"
+                        style={{ background: 'linear-gradient(135deg, rgba(232,119,58,0.12) 0%, rgba(232,119,58,0.04) 100%)' }}
+                      >
+                        <step.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-heading text-[18px] font-bold">{step.title}</h3>
+                      <p className="mt-2 text-body text-[14px] leading-relaxed max-w-[200px] mx-auto">{step.desc}</p>
+                    </div>
+                    {i < 2 && (
+                      <div className="hidden md:flex items-center justify-center w-8 flex-shrink-0">
+                        <ChevronRight className="w-5 h-5 text-[#EAEAF0]" />
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-heading text-[18px] font-bold">{step.title}</h3>
-                  <p className="mt-2 text-muted-foreground text-[14px] leading-relaxed">{step.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── What You Get ── */}
-      <section className="py-16 md:py-24 bg-bg-alt" aria-labelledby="enhancer-features-heading">
-        <div className="container-main">
-          <ScrollReveal>
-            <div className="text-center mb-14">
-              <span className="section-label">What You Get</span>
-              <h2
-                id="enhancer-features-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
-              >
-                Powerful Enhancement Tools
-              </h2>
-              <p className="mt-3 text-muted-foreground text-[16px] max-w-xl mx-auto">
-                Every tool you need to transform your writing into examiner-ready responses.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {features.map((feat, i) => (
-              <ScrollReveal key={feat.title} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl border border-border p-7 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 h-full">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4">
-                    <feat.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-heading text-[16px] font-bold">{feat.title}</h3>
-                  <p className="mt-2 text-muted-foreground text-[13px] leading-relaxed">{feat.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Before & After ── */}
-      <section className="py-16 md:py-24 bg-white" aria-labelledby="enhancer-comparison-heading">
-        <div className="container-main">
-          <ScrollReveal>
-            <div className="text-center mb-14">
-              <span className="section-label">See the Difference</span>
-              <h2
-                id="enhancer-comparison-heading"
-                className="mt-5 text-heading text-[28px] md:text-[36px] font-heading font-extrabold italic leading-tight"
-              >
-                Before &amp; After
-              </h2>
-              <p className="mt-3 text-muted-foreground text-[16px] max-w-xl mx-auto">
-                See how our AI transforms basic writing into Band 7+ quality responses.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.15}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Before */}
-              <div className="bg-bg-alt rounded-2xl border border-border p-8">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-red-100 text-red-600 text-[12px] font-bold tracking-wide">
-                    Before
-                  </span>
-                  <span className="text-muted-foreground text-[13px]">Band 5&ndash;6</span>
-                </div>
-                <p className="text-body text-[15px] leading-relaxed">
-                  The graph shows that sales{' '}
-                  <span className="bg-red-100 text-red-700 px-1 rounded">went up a lot</span>{' '}
-                  between 2010 and 2020.
-                </p>
-              </div>
-
-              {/* After */}
-              <div className="bg-bg-alt rounded-2xl border border-primary/20 p-8 ring-1 ring-primary/10">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[12px] font-bold tracking-wide">
-                    After
-                  </span>
-                  <span className="text-muted-foreground text-[13px]">Band 7+</span>
-                </div>
-                <p className="text-body text-[15px] leading-relaxed">
-                  The graph{' '}
-                  <span className="bg-primary/10 text-primary font-semibold px-1 rounded">illustrates</span>{' '}
-                  a{' '}
-                  <span className="bg-primary/10 text-primary font-semibold px-1 rounded">significant upward trend</span>{' '}
-                  in sales figures{' '}
-                  <span className="bg-primary/10 text-primary font-semibold px-1 rounded">over the decade spanning</span>{' '}
-                  2010 to 2020.
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.25}>
-            <div className="mt-8 max-w-4xl mx-auto">
-              <div className="bg-bg-alt rounded-2xl border border-border p-6">
-                <h4 className="text-heading text-[14px] font-bold mb-3">What changed:</h4>
-                <ul className="space-y-2">
-                  {[
-                    { before: '"shows"', after: '"illustrates"', why: 'More academic and precise verb choice' },
-                    { before: '"went up a lot"', after: '"significant upward trend"', why: 'Band 7+ academic phrasing' },
-                    { before: '"between"', after: '"over the decade spanning"', why: 'Demonstrates range of expression' },
-                  ].map((change) => (
-                    <li key={change.before} className="flex items-start gap-2 text-[13px]">
-                      <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-body">
-                        <span className="line-through text-muted-foreground">{change.before}</span>
-                        {' '}
-                        <span className="text-primary font-semibold">{change.after}</span>
-                        {' '}
-                        <span className="text-muted-foreground">&mdash; {change.why}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="px-5 md:px-10 py-6 md:py-8" aria-labelledby="enhancer-cta-heading">
-        <ScrollReveal>
-          <div
-            className="relative overflow-hidden rounded-2xl py-16 md:py-24 px-6 md:px-10 text-center"
-            style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #2A2A45 100%)' }}
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(232,119,58,0.2),transparent_50%)]" />
-            <div className="relative z-10 max-w-xl mx-auto">
+      <section className="py-16 md:py-24 bg-bg-alt" aria-labelledby="enhancer-cta-heading">
+        <div className="container-main">
+          <ScrollReveal>
+            <div className="text-center max-w-xl mx-auto">
               <h2
                 id="enhancer-cta-heading"
-                className="text-white text-[30px] md:text-[38px] leading-[1.15] font-heading font-extrabold italic"
+                className="text-heading text-[28px] md:text-[36px] leading-[1.15] font-heading font-extrabold italic"
               >
-                Upgrade Your Writing Today
+                Ready to upgrade your writing?
               </h2>
-              <p className="mt-4 text-white/55 text-[16px] leading-relaxed">
-                Stop guessing what Band 7+ writing looks like. Paste your text and see the transformation instantly.
+              <p className="mt-4 text-body text-[16px] leading-relaxed">
+                Paste your text, see the transformation, and learn the patterns that examiners reward. No guesswork required.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
                   href="https://app.ieltstop.com/signup"
                   className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-all shadow-[0_4px_16px_rgba(232,119,58,0.35)]"
                 >
-                  Try Text Enhancer Free
+                  Try the Text Enhancer
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <a
                   href="https://app.ieltstop.com/signup"
-                  className="inline-flex items-center h-[52px] px-8 border border-white/20 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/5 transition-all"
+                  className="inline-flex items-center h-[52px] px-8 border border-[#EAEAF0] text-heading text-[15px] font-semibold rounded-lg hover:bg-white transition-all"
                 >
                   View Pricing
                 </a>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </section>
     </div>
   );

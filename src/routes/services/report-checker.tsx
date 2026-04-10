@@ -1,65 +1,368 @@
-import { ArrowRight, FileText, Upload, Zap, BarChart3, CheckCircle, Target, TrendingUp, Lightbulb, LayoutList, Database } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import ScrollReveal from '../../components/ui/ScrollReveal';
+
+/* ─── CSS-only chart visuals ──────────────────────────────────────────── */
+
+function BarChartVisual() {
+  const bars = [
+    { h: '60%', color: '#E8773A' },
+    { h: '85%', color: '#E8773A' },
+    { h: '45%', color: 'rgba(232,119,58,0.5)' },
+    { h: '72%', color: '#E8773A' },
+  ];
+  return (
+    <div className="flex items-end gap-3 h-full w-full px-2 pb-2">
+      {bars.map((b, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-t-md transition-all duration-700"
+          style={{ height: b.h, background: b.color, minWidth: 18 }}
+        />
+      ))}
+    </div>
+  );
+}
+
+function LineGraphVisual() {
+  return (
+    <svg viewBox="0 0 120 60" fill="none" className="w-full h-full">
+      <polyline
+        points="5,50 30,35 55,42 80,18 115,10"
+        stroke="#E8773A"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <polyline
+        points="5,50 30,35 55,42 80,18 115,10"
+        stroke="none"
+        fill="url(#lineGrad)"
+        opacity="0.15"
+      />
+      <defs>
+        <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#E8773A" />
+          <stop offset="100%" stopColor="#E8773A" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {[
+        [5, 50],
+        [30, 35],
+        [55, 42],
+        [80, 18],
+        [115, 10],
+      ].map(([cx, cy], i) => (
+        <circle key={i} cx={cx} cy={cy} r="3" fill="#E8773A" />
+      ))}
+    </svg>
+  );
+}
+
+function PieChartVisual() {
+  return (
+    <svg viewBox="0 0 80 80" className="w-full h-full">
+      <circle cx="40" cy="40" r="36" fill="rgba(232,119,58,0.12)" />
+      <circle
+        cx="40"
+        cy="40"
+        r="18"
+        fill="none"
+        stroke="#E8773A"
+        strokeWidth="36"
+        strokeDasharray="40 113"
+        strokeDashoffset="0"
+        transform="rotate(-90 40 40)"
+      />
+      <circle
+        cx="40"
+        cy="40"
+        r="18"
+        fill="none"
+        stroke="rgba(232,119,58,0.55)"
+        strokeWidth="36"
+        strokeDasharray="28 125"
+        strokeDashoffset="-40"
+        transform="rotate(-90 40 40)"
+      />
+      <circle
+        cx="40"
+        cy="40"
+        r="18"
+        fill="none"
+        stroke="rgba(232,119,58,0.3)"
+        strokeWidth="36"
+        strokeDasharray="22 131"
+        strokeDashoffset="-68"
+        transform="rotate(-90 40 40)"
+      />
+      <circle cx="40" cy="40" r="14" fill="white" />
+    </svg>
+  );
+}
+
+function TableVisual() {
+  const cells = [
+    ['', '#E8773A', 'rgba(232,119,58,0.4)', '#E8773A'],
+    ['rgba(232,119,58,0.2)', '', 'rgba(232,119,58,0.6)', 'rgba(232,119,58,0.2)'],
+    ['#E8773A', 'rgba(232,119,58,0.4)', '', 'rgba(232,119,58,0.5)'],
+  ];
+  return (
+    <div className="grid grid-rows-3 gap-[3px] w-full h-full p-1">
+      {cells.map((row, ri) => (
+        <div key={ri} className="grid grid-cols-4 gap-[3px]">
+          {row.map((c, ci) => (
+            <div
+              key={ci}
+              className="rounded-[3px]"
+              style={{
+                background: c || 'rgba(232,119,58,0.12)',
+                minHeight: 10,
+              }}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ─── Hero bar chart decoration ───────────────────────────────────────── */
+
+function HeroBarChart() {
+  const bars = [
+    { h: 48, label: 'Q1' },
+    { h: 72, label: 'Q2' },
+    { h: 56, label: 'Q3' },
+    { h: 88, label: 'Q4' },
+  ];
+  return (
+    <div className="relative w-full max-w-[280px] mx-auto">
+      <div className="bg-white/[0.06] border border-white/[0.08] rounded-2xl p-6 backdrop-blur-sm">
+        <div className="flex items-center gap-2 mb-5">
+          <div className="w-2 h-2 rounded-full bg-primary" />
+          <span className="text-[11px] text-white/40 font-medium tracking-wide uppercase">
+            Annual Revenue ($M)
+          </span>
+        </div>
+        <div className="flex items-end justify-between gap-4 h-[120px]">
+          {bars.map((b) => (
+            <div key={b.label} className="flex flex-col items-center gap-2 flex-1">
+              <span className="text-[11px] text-white/50 font-semibold">{b.h}</span>
+              <div
+                className="w-full rounded-t-md bg-gradient-to-t from-primary to-primary/60"
+                style={{ height: `${b.h}%` }}
+              />
+              <span className="text-[10px] text-white/35 font-medium">{b.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Floating annotation */}
+      <div className="absolute -top-3 -right-3 bg-primary text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg">
+        +22% growth
+      </div>
+    </div>
+  );
+}
+
+/* ─── Mock text snippet component ─────────────────────────────────────── */
+
+function MockSnippet({
+  lines,
+}: {
+  lines: { text: string; highlight?: boolean }[];
+}) {
+  return (
+    <div className="bg-white rounded-xl border border-[#EAEAF0] p-5 font-mono text-[13px] leading-[1.85] text-[#555568] shadow-card">
+      {lines.map((line, i) => (
+        <span key={i}>
+          {line.highlight ? (
+            <mark className="bg-primary/15 text-[#1A1A2E] font-semibold px-1 rounded">
+              {line.text}
+            </mark>
+          ) : (
+            line.text
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/* ─── Chart type data ─────────────────────────────────────────────────── */
+
+const chartTypes = [
+  {
+    title: 'Bar Charts',
+    desc: 'Compare quantities across categories with grouped or stacked bar representations.',
+    Visual: BarChartVisual,
+  },
+  {
+    title: 'Line Graphs',
+    desc: 'Track changes over time and identify upward, downward, or fluctuating trends.',
+    Visual: LineGraphVisual,
+  },
+  {
+    title: 'Pie Charts',
+    desc: 'Describe proportions and percentage breakdowns of a whole.',
+    Visual: PieChartVisual,
+  },
+  {
+    title: 'Tables & Diagrams',
+    desc: 'Interpret raw data, processes, maps, and multi-variable comparisons.',
+    Visual: TableVisual,
+  },
+];
+
+/* ─── Scoring criteria ────────────────────────────────────────────────── */
+
+const criteria = [
+  {
+    name: 'Task Achievement',
+    desc: 'Covers all key features with a clear overview and accurate data.',
+    score: '7.0',
+  },
+  {
+    name: 'Coherence & Cohesion',
+    desc: 'Logical grouping with smooth transitions between data points.',
+    score: '7.0',
+  },
+  {
+    name: 'Lexical Resource',
+    desc: 'Precise data vocabulary — comparisons, approximations, trends.',
+    score: '6.5',
+  },
+  {
+    name: 'Grammatical Range',
+    desc: 'Complex structures, passive voice, and accurate tense usage.',
+    score: '7.0',
+  },
+];
+
+/* ─── Key skills data ─────────────────────────────────────────────────── */
+
+const skills = [
+  {
+    title: 'Overview Statement',
+    desc: 'The overview is the single most important paragraph in your report. It demonstrates your ability to identify the main trend, the biggest difference, or the most striking feature without citing specific numbers.',
+    snippet: [
+      { text: 'The bar chart illustrates the amount of waste produced by three countries. ' },
+      {
+        text: 'Overall, it is clear that Country A generated the highest volume of waste throughout the period, while Country C consistently produced the least.',
+        highlight: true,
+      },
+    ],
+  },
+  {
+    title: 'Data Comparison',
+    desc: 'Examiners look for your ability to make meaningful comparisons rather than just listing numbers. Group similar data points and highlight contrasts using comparative and superlative structures.',
+    snippet: [
+      { text: 'In 2020, ' },
+      {
+        text: 'spending on education was approximately twice as high as that on defense',
+        highlight: true,
+      },
+      { text: ', at $40 billion and $21 billion respectively. ' },
+      {
+        text: 'By contrast, healthcare expenditure exceeded both categories combined',
+        highlight: true,
+      },
+      { text: ', reaching $68 billion.' },
+    ],
+  },
+  {
+    title: 'Trend Description',
+    desc: 'Describing how data changes over time is essential for line graphs and dynamic charts. Use precise language for the direction, speed, and magnitude of changes rather than vague terms.',
+    snippet: [
+      { text: 'Between 2005 and 2015, the number of international students ' },
+      {
+        text: 'rose sharply from 12,000 to 31,000',
+        highlight: true,
+      },
+      { text: '. After peaking in 2015, enrolment ' },
+      {
+        text: 'declined gradually before levelling off at around 25,000',
+        highlight: true,
+      },
+      { text: ' in 2020.' },
+    ],
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════════════════ */
 
 export default function ReportCheckerPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-heading text-white section-padding">
+      {/* ── 1. Hero ─────────────────────────────────────────────────── */}
+      <section className="bg-heading section-padding overflow-hidden">
         <div className="container-main">
-          <ScrollReveal>
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-6">
-                <FileText className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className="text-white text-[36px] md:text-[48px] font-bold leading-tight">
-                AI-Powered Report Checker
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left */}
+            <ScrollReveal direction="left">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] text-[12px] text-white/50 font-semibold tracking-wide uppercase mb-6">
+                Academic Task 1
+              </span>
+              <h1 className="text-white text-[34px] sm:text-[42px] md:text-[50px] font-extrabold leading-[1.08]">
+                Master Academic
+                <br />
+                <span className="text-primary">Task 1 Reports</span>
               </h1>
-              <p className="mt-4 text-[18px] text-[#B0B0C0] leading-relaxed max-w-2xl mx-auto">
-                Get expert-level feedback on your IELTS Academic Task 1 reports. Master data description, chart analysis, and trend identification.
+              <p className="mt-5 text-[17px] text-[#9999AD] leading-relaxed max-w-lg">
+                Sharpen your data description, chart analysis, and trend identification
+                skills with AI feedback calibrated to real IELTS examiner standards.
               </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
                   href="https://app.ieltstop.com/reports"
-                  className="inline-flex items-center gap-2 h-12 px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-colors"
+                  className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.3)]"
                 >
-                  Check Your Report <ArrowRight className="w-4 h-4" />
+                  Check Your Report
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <a
                   href="https://app.ieltstop.com/signup"
-                  className="inline-flex items-center gap-2 h-12 px-8 border-2 border-white/20 text-white text-[15px] font-bold rounded-lg hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center h-[52px] px-8 border-2 border-white/15 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/[0.06] transition-colors"
                 >
                   Sign Up Free
                 </a>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+
+            {/* Right — decorative bar chart */}
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="flex justify-center lg:justify-end">
+                <HeroBarChart />
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* ── 2. What You'll Analyze ──────────────────────────────────── */}
       <section className="section-padding bg-white">
         <div className="container-main">
           <ScrollReveal>
             <div className="text-center mb-14">
-              <span className="section-label">How It Works</span>
-              <h2 className="mt-5">Three simple steps to better reports</h2>
+              <span className="section-label">Chart Types</span>
+              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-extrabold leading-tight">
+                What you'll analyze
+              </h2>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { step: '01', icon: Upload, title: 'Paste Your Report', description: 'Copy and paste your IELTS Academic Task 1 report — whether it covers a chart, graph, table, map, or process.' },
-              { step: '02', icon: Zap, title: 'AI Analyzes Instantly', description: 'Our AI evaluates your data description, structure, and language against official IELTS criteria in seconds.' },
-              { step: '03', icon: BarChart3, title: 'Get Scored Feedback', description: 'Receive your band score with a detailed breakdown and targeted advice to strengthen your report writing.' },
-            ].map((item, i) => (
-              <ScrollReveal key={item.step} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="text-[48px] font-bold text-primary/15 leading-none">{item.step}</div>
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mt-4 mb-5">
-                    <item.icon className="w-7 h-7 text-primary" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {chartTypes.map((ct, i) => (
+              <ScrollReveal key={ct.title} delay={i * 0.1}>
+                <div className="group bg-white rounded-2xl border border-[#EAEAF0] p-6 h-full shadow-card hover:border-primary/30 transition-all duration-300">
+                  <div className="w-full aspect-square rounded-xl bg-[#F7F7FB] flex items-center justify-center p-4 mb-5 overflow-hidden">
+                    <ct.Visual />
                   </div>
-                  <h3 className="text-[18px] font-bold text-heading">{item.title}</h3>
-                  <p className="mt-3 text-[14px] text-body leading-[1.7]">{item.description}</p>
+                  <h3 className="text-[17px] font-bold text-[#1A1A2E]">{ct.title}</h3>
+                  <p className="mt-2 text-[13px] text-[#555568] leading-[1.7]">
+                    {ct.desc}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -67,61 +370,38 @@ export default function ReportCheckerPage() {
         </div>
       </section>
 
-      {/* What You Get */}
-      <section className="section-padding bg-bg-alt">
+      {/* ── 3. How We Score ─────────────────────────────────────────── */}
+      <section className="section-padding bg-[#F7F7FB]">
         <div className="container-main">
           <ScrollReveal>
-            <div className="text-center mb-14">
-              <span className="section-label">Features</span>
-              <h2 className="mt-5">Everything you need to master report writing</h2>
-            </div>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Target, title: 'Band Score', description: 'Accurate band score prediction calibrated to official IELTS Academic Task 1 marking standards.' },
-              { icon: Database, title: 'Data Accuracy', description: 'Checks how accurately and completely you describe the key data, trends, and figures in the visual.' },
-              { icon: LayoutList, title: 'Structure Analysis', description: 'Evaluates your overview, key feature selection, grouping, and logical comparison of data points.' },
-              { icon: TrendingUp, title: 'Language of Data', description: 'Assesses your use of data-specific vocabulary — comparisons, approximations, trends, and changes over time.' },
-            ].map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 0.1}>
-                <div className="bg-white rounded-xl border border-border p-6 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-[16px] font-bold text-heading">{item.title}</h3>
-                  <p className="mt-2 text-[14px] text-body leading-[1.7]">{item.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Scoring Criteria */}
-      <section className="section-padding bg-white">
-        <div className="container-main">
-          <ScrollReveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-4">
               <span className="section-label">Scoring</span>
-              <h2 className="mt-5">Evaluated on all 4 IELTS criteria</h2>
-              <p className="mt-4 text-[15px] text-body max-w-2xl mx-auto">Your report is scored using the same criteria IELTS examiners apply to Academic Task 1, so you get a reliable estimate of your actual band score.</p>
+            </div>
+            <div className="text-center mb-14">
+              <div className="text-primary text-[56px] md:text-[72px] font-extrabold leading-none">
+                4 Criteria
+              </div>
+              <p className="mt-4 text-[16px] text-[#555568] max-w-lg mx-auto leading-relaxed">
+                Your report is scored against the same four dimensions IELTS examiners
+                use, so your estimated band reflects the real test.
+              </p>
             </div>
           </ScrollReveal>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {[
-              { label: 'Task Achievement', score: 'Band 1–9', description: 'How well you summarize the key information, present an overview, and highlight the most significant features and trends.' },
-              { label: 'Coherence & Cohesion', score: 'Band 1–9', description: 'How logically you organize data points, use paragraphing effectively, and connect ideas with appropriate linking.' },
-              { label: 'Lexical Resource', score: 'Band 1–9', description: 'Your range of vocabulary for describing data — including precise numerical language, comparatives, and trend words.' },
-              { label: 'Grammatical Range', score: 'Band 1–9', description: 'Your control of complex structures, passive voice for processes, tense accuracy, and overall grammatical precision.' },
-            ].map((item, i) => (
-              <ScrollReveal key={item.label} delay={i * 0.1}>
-                <div className="flex gap-4 p-5 bg-bg-alt rounded-xl">
-                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white text-[14px] font-bold shrink-0">
-                    {item.score.split('–')[1]}
+            {criteria.map((c, i) => (
+              <ScrollReveal key={c.name} delay={i * 0.1}>
+                <div className="bg-white rounded-2xl border border-[#EAEAF0] p-6 flex items-start gap-5 shadow-card">
+                  <div className="shrink-0 w-[58px] h-[58px] rounded-xl bg-primary/10 flex items-center justify-center">
+                    <span className="text-primary text-[22px] font-extrabold">
+                      {c.score}
+                    </span>
                   </div>
                   <div>
-                    <h3 className="text-[16px] font-bold text-heading">{item.label}</h3>
-                    <p className="mt-1 text-[13px] text-body leading-[1.7]">{item.description}</p>
+                    <h3 className="text-[16px] font-bold text-[#1A1A2E]">{c.name}</h3>
+                    <p className="mt-1.5 text-[13px] text-[#555568] leading-[1.7]">
+                      {c.desc}
+                    </p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -130,76 +410,73 @@ export default function ReportCheckerPage() {
         </div>
       </section>
 
-      {/* Sample Feedback Preview */}
-      <section className="section-padding bg-bg-alt">
+      {/* ── 4. Key Skills We Evaluate ──────────────────────────────── */}
+      <section className="section-padding bg-white">
         <div className="container-main">
           <ScrollReveal>
-            <div className="text-center mb-14">
-              <span className="section-label">Preview</span>
-              <h2 className="mt-5">See what your feedback looks like</h2>
+            <div className="text-center mb-16">
+              <span className="section-label">Skills</span>
+              <h2 className="mt-5 text-heading text-[28px] md:text-[36px] font-extrabold leading-tight">
+                Key skills we evaluate
+              </h2>
             </div>
           </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <div className="max-w-2xl mx-auto bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
-              <div className="px-6 py-4 bg-heading flex items-center justify-between">
-                <span className="text-white text-[14px] font-bold">Report Feedback Report</span>
-                <span className="text-primary text-[14px] font-bold">Band 6.0</span>
-              </div>
-              <div className="p-6 space-y-5">
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { label: 'Task Achievement', score: '6.0' },
-                    { label: 'Coherence & Cohesion', score: '6.0' },
-                    { label: 'Lexical Resource', score: '6.0' },
-                    { label: 'Grammatical Range', score: '6.0' },
-                  ].map((c) => (
-                    <div key={c.label} className="flex items-center justify-between p-3 bg-bg-alt rounded-lg">
-                      <span className="text-[13px] text-body">{c.label}</span>
-                      <span className="text-[14px] font-bold text-heading">{c.score}</span>
+
+          <div className="max-w-4xl mx-auto space-y-20">
+            {skills.map((skill, i) => {
+              const isReversed = i % 2 === 1;
+              return (
+                <ScrollReveal key={skill.title} delay={0.1}>
+                  <div
+                    className={`grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${
+                      isReversed ? 'md:direction-rtl' : ''
+                    }`}
+                    style={isReversed ? { direction: 'rtl' } : undefined}
+                  >
+                    <div style={isReversed ? { direction: 'ltr' } : undefined}>
+                      <div className="text-primary text-[12px] font-bold tracking-widest uppercase mb-3">
+                        Skill {String(i + 1).padStart(2, '0')}
+                      </div>
+                      <h3 className="text-[22px] font-bold text-[#1A1A2E]">
+                        {skill.title}
+                      </h3>
+                      <p className="mt-3 text-[14px] text-[#555568] leading-[1.8]">
+                        {skill.desc}
+                      </p>
                     </div>
-                  ))}
-                </div>
-                <div className="border-t border-border pt-5">
-                  <h4 className="text-[14px] font-bold text-heading mb-2">Key Feedback</h4>
-                  <ul className="space-y-2">
-                    <li className="flex gap-2 text-[13px] text-body leading-[1.7]">
-                      <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                      Good overview paragraph that identifies the main trend in the data.
-                    </li>
-                    <li className="flex gap-2 text-[13px] text-body leading-[1.7]">
-                      <Lightbulb className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      Include specific data points and figures to support your descriptions — avoid vague language like "a lot" or "some."
-                    </li>
-                    <li className="flex gap-2 text-[13px] text-body leading-[1.7]">
-                      <Lightbulb className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      Use more sophisticated comparison structures such as "while X increased, Y experienced a decline" instead of listing data sequentially.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+                    <div style={isReversed ? { direction: 'ltr' } : undefined}>
+                      <MockSnippet lines={skill.snippet} />
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* ── 5. CTA ─────────────────────────────────────────────────── */}
       <section className="section-padding bg-heading">
         <div className="container-main text-center">
           <ScrollReveal>
-            <h2 className="text-white text-[28px] md:text-[36px] font-bold">Ready to improve your report score?</h2>
-            <p className="mt-4 text-[16px] text-[#B0B0C0] max-w-xl mx-auto">
-              Get instant, examiner-level feedback on your IELTS Academic Task 1 reports and take control of your score.
+            <h2 className="text-white text-[28px] md:text-[38px] font-extrabold leading-tight">
+              Start analyzing your reports
+            </h2>
+            <p className="mt-4 text-[16px] text-[#9999AD] max-w-xl mx-auto leading-relaxed">
+              Get examiner-level feedback on every chart, graph, and table you
+              describe. Know your band score before exam day.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="https://app.ieltstop.com/reports"
-                className="inline-flex items-center gap-2 h-12 px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary-hover transition-colors"
+                className="group inline-flex items-center gap-2.5 h-[52px] px-8 bg-primary text-white text-[15px] font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-[0_4px_20px_rgba(232,119,58,0.3)]"
               >
-                Check Your Report Now <ArrowRight className="w-4 h-4" />
+                Check Your Report Now
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://app.ieltstop.com/signup"
-                className="inline-flex items-center gap-2 h-12 px-8 border-2 border-white/20 text-white text-[15px] font-bold rounded-lg hover:bg-white/10 transition-colors"
+                className="inline-flex items-center h-[52px] px-8 border-2 border-white/15 text-white/80 text-[15px] font-semibold rounded-lg hover:bg-white/[0.06] transition-colors"
               >
                 Create Free Account
               </a>

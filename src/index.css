@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* ── shadcn/ui tokens mapped to IELTS Top palette ──────────────────── */
+  --color-background: #FFFFFF;
+  --color-foreground: #1A1A2E;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1A1A2E;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #1A1A2E;
+  --color-primary: #E8773A;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #F7F7FB;
+  --color-secondary-foreground: #1A1A2E;
+  --color-muted: #F7F7FB;
+  --color-muted-foreground: #8E8EA0;
+  --color-accent: #FFF3EB;
+  --color-accent-foreground: #E8773A;
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #EAEAF0;
+  --color-input: #D5D5E0;
+  --color-ring: #E8773A;
+
+  --color-chart-1: #E8773A;
+  --color-chart-2: #23A09C;
+  --color-chart-3: #1A1A2E;
+  --color-chart-4: #F5A623;
+  --color-chart-5: #D4682E;
+
+  --color-sidebar: #F7F7FB;
+  --color-sidebar-foreground: #1A1A2E;
+  --color-sidebar-primary: #E8773A;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #FFF3EB;
+  --color-sidebar-accent-foreground: #1A1A2E;
+  --color-sidebar-border: #EAEAF0;
+  --color-sidebar-ring: #E8773A;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* ── IELTS Top custom tokens ───────────────────────────────────────── */
+  --color-primary-hover: #D4682E;
+  --color-primary-light: #FFF3EB;
+  --color-ielts-accent: #23A09C;
+  --color-accent-light: #E6F7F6;
+
+  --color-heading: #1A1A2E;
+  --color-body: #555568;
+  --color-body-alt: #606377;
+  --color-ielts-muted: #8E8EA0;
+  --color-muted-light: #9999B0;
+  --color-text-light: #B0B0C0;
+  --color-text-dim: #7777A0;
+
+  --color-white: #FFFFFF;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F7FB;
+  --color-bg-warm: #F5EDE3;
+  --color-bg-warm-alt: #F4F2EF;
+  --color-bg-dark: #1A1A2E;
+  --color-bg-placeholder: #E8D5C0;
+  --color-bg-beige: #E8E0D6;
+  --color-progress-bg: #F0F0F4;
+
+  --color-border-medium: #D8D8E4;
+
+  --color-success: #10B981;
+  --color-warning: #F5A623;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  --font-heading: "Inter Tight", sans-serif;
+  --font-body: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.1);
+  --shadow-dropdown: 0 10px 40px rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 24px 64px rgba(0, 0, 0, 0.14);
+
+  --radius-button: 6px;
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --radius-full: 9999px;
+
+  --container-max: 1280px;
+
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-scale-in: scale-in 0.3s ease-out both;
+}
+
+/* ── Dark mode — IELTS Top branded ───────────────────────────────────── */
+
+.dark {
+  --color-background: #1A1A2E;
+  --color-foreground: #F7F7FB;
+  --color-card: #222240;
+  --color-card-foreground: #F7F7FB;
+  --color-popover: #222240;
+  --color-popover-foreground: #F7F7FB;
+  --color-primary: #E8773A;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #2A2A44;
+  --color-secondary-foreground: #F7F7FB;
+  --color-muted: #2A2A44;
+  --color-muted-foreground: #9999B0;
+  --color-accent: #3A2A20;
+  --color-accent-foreground: #E8773A;
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: #F7F7FB;
+  --color-border: #2A2A44;
+  --color-input: #2A2A44;
+  --color-ring: #E8773A;
+  --color-chart-1: #E8773A;
+  --color-chart-2: #23A09C;
+  --color-chart-3: #9999B0;
+  --color-chart-4: #F5A623;
+  --color-chart-5: #D4682E;
+  --color-sidebar: #1A1A2E;
+  --color-sidebar-foreground: #F7F7FB;
+  --color-sidebar-primary: #E8773A;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #2A2A44;
+  --color-sidebar-accent-foreground: #F7F7FB;
+  --color-sidebar-border: #2A2A44;
+  --color-sidebar-ring: #E8773A;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────────── */
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-body);
+  background: var(--color-background);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+#root { width: 100%; }
+
+/* ── Typography ──────────────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h1 { font-size: 52px; line-height: 1.1; letter-spacing: -0.02em; }
+  h2 { font-size: 38px; line-height: 1.15; letter-spacing: -0.015em; }
+  h3 { font-size: 28px; line-height: 1.2; }
+  h4 { font-size: 20px; line-height: 1.3; }
+  h5 { font-size: 16px; line-height: 1.4; font-weight: 600; }
+  h6 { font-size: 14px; line-height: 1.5; font-weight: 600; }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 30px; }
+    h3 { font-size: 24px; }
+    h4 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 16px; }
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button, input, textarea, select { transition: all 0.2s ease; }
+}
+
+::selection { background-color: var(--color-primary-light); color: var(--color-heading); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f5f5f5; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* ── Layout ──────────────────────────────────────────────────────────── */
+
+.container-main, .section-container {
+  max-width: var(--container-max);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) { .container-main, .section-container { padding-left: 32px; padding-right: 32px; } }
+@media (min-width: 1024px) { .container-main, .section-container { padding-left: 40px; padding-right: 40px; } }
+
+.section-padding { padding-top: 72px; padding-bottom: 72px; }
+@media (min-width: 768px) { .section-padding { padding-top: 100px; padding-bottom: 100px; } }
+
+/* ── Components ──────────────────────────────────────────────────────── */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 4px;
+  background: var(--color-primary-light);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+.section-label-dark {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 4px;
+  background: rgba(232, 119, 58, 0.15);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+}
+
+.skip-to-content {
+  position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+  background: var(--color-heading); color: white; padding: 8px 16px;
+  border-radius: 0 0 8px 8px; z-index: 100; font-size: 14px; font-weight: 600;
+}
+.skip-to-content:focus { top: 0; }

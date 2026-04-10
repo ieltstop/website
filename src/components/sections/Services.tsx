@@ -11,12 +11,12 @@ import ServiceCard from '../ui/ServiceCard';
 import ScrollReveal from '../ui/ScrollReveal';
 
 const services = [
-  { icon: Pencil, title: 'Essay Checker', description: 'Get your IELTS Task 2 essays evaluated instantly with detailed feedback and band scores.', cta: 'Check Essay', link: 'https://app.ieltstop.com/essays' },
-  { icon: Mail, title: 'Letter Checker', description: 'Submit your IELTS General Training Task 1 letters for detailed analysis and scoring.', cta: 'Check Letter', link: 'https://app.ieltstop.com/letters' },
-  { icon: FileText, title: 'Report Checker', description: 'Academic Task 1 analysis with feedback on data description, structure, and accuracy.', cta: 'Check Report', link: 'https://app.ieltstop.com/reports' },
-  { icon: Mic, title: 'Speaking Assessment', description: 'Record your speaking responses and receive instant pronunciation and fluency analysis.', cta: 'Check Speaking', link: 'https://app.ieltstop.com/speaking' },
-  { icon: Sparkles, title: 'Text Enhancer', description: 'Upgrade your writing to Band 7+ with AI-powered vocabulary and grammar suggestions.', cta: 'Try Now', link: 'https://app.ieltstop.com/signup' },
-  { icon: BookOpen, title: 'Sample Answers', description: 'Study high-scoring Band 7, 8, and 9 examples with detailed examiner commentary.', cta: 'View Samples', link: 'https://app.ieltstop.com/samples' },
+  { icon: Pencil, title: 'Essay Checker', description: 'Get your IELTS Task 2 essays evaluated instantly with detailed feedback and band scores.', cta: 'Learn More', link: '/services/essay-checker' },
+  { icon: Mail, title: 'Letter Checker', description: 'Submit your IELTS General Training Task 1 letters for detailed analysis and scoring.', cta: 'Learn More', link: '/services/letter-checker' },
+  { icon: FileText, title: 'Report Checker', description: 'Academic Task 1 analysis with feedback on data description, structure, and accuracy.', cta: 'Learn More', link: '/services/report-checker' },
+  { icon: Mic, title: 'Speaking Assessment', description: 'Record your speaking responses and receive instant pronunciation and fluency analysis.', cta: 'Learn More', link: '/services/speaking-assessment' },
+  { icon: Sparkles, title: 'Text Enhancer', description: 'Upgrade your writing to Band 7+ with AI-powered vocabulary and grammar suggestions.', cta: 'Learn More', link: '/services/text-enhancer' },
+  { icon: BookOpen, title: 'Sample Answers', description: 'Study high-scoring Band 7, 8, and 9 examples with detailed examiner commentary.', cta: 'Learn More', link: '/services/sample-answers' },
 ];
 
 export default function Services() {

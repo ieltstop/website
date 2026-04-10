@@ -12,6 +12,12 @@ import BandCalculatorPage from "./routes/band-calculator";
 import ComparePage from "./routes/compare";
 import TestDayGuidePage from "./routes/test-day-guide";
 import StudyAbroadPage from "./routes/study-abroad";
+import EssayCheckerPage from "./routes/services/essay-checker";
+import LetterCheckerPage from "./routes/services/letter-checker";
+import ReportCheckerPage from "./routes/services/report-checker";
+import SpeakingAssessmentPage from "./routes/services/speaking-assessment";
+import TextEnhancerPage from "./routes/services/text-enhancer";
+import SampleAnswersPage from "./routes/services/sample-answers";
 
 export default function App() {
   return (
@@ -29,6 +35,12 @@ export default function App() {
         <Route path="/compare" element={<ComparePage />} />
         <Route path="/test-day-guide" element={<TestDayGuidePage />} />
         <Route path="/study-abroad" element={<StudyAbroadPage />} />
+        <Route path="/services/essay-checker" element={<EssayCheckerPage />} />
+        <Route path="/services/letter-checker" element={<LetterCheckerPage />} />
+        <Route path="/services/report-checker" element={<ReportCheckerPage />} />
+        <Route path="/services/speaking-assessment" element={<SpeakingAssessmentPage />} />
+        <Route path="/services/text-enhancer" element={<TextEnhancerPage />} />
+        <Route path="/services/sample-answers" element={<SampleAnswersPage />} />
       </Route>
     </Routes>
   );

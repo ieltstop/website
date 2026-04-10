@@ -59,12 +59,12 @@ const NAV_LINKS: NavLink[] = [
 ];
 
 const SERVICES: ServiceLink[] = [
-  { icon: Pencil, label: 'Essay Checker', description: 'Get instant AI feedback on Task 1 & 2 essays', to: `${APP_URL}/essays`, external: true },
-  { icon: Mail, label: 'Letter Checker', description: 'Evaluate formal, informal & semi-formal letters', to: `${APP_URL}/letters`, external: true },
-  { icon: FileText, label: 'Report Checker', description: 'Academic Task 1 report analysis & scoring', to: `${APP_URL}/reports`, external: true },
-  { icon: Mic, label: 'Speaking Assessment', description: 'Upload audio for pronunciation & fluency feedback', to: `${APP_URL}/speaking`, external: true },
-  { icon: Sparkles, label: 'Text Enhancer', description: 'Upgrade your writing to Band 7+ with AI', to: `${APP_URL}/signup`, external: true },
-  { icon: BookOpen, label: 'Sample Answers', description: 'Study high-scoring Band 7, 8 & 9 examples', to: `${APP_URL}/samples`, external: true },
+  { icon: Pencil, label: 'Essay Checker', description: 'Get instant AI feedback on Task 1 & 2 essays', to: '/services/essay-checker' },
+  { icon: Mail, label: 'Letter Checker', description: 'Evaluate formal, informal & semi-formal letters', to: '/services/letter-checker' },
+  { icon: FileText, label: 'Report Checker', description: 'Academic Task 1 report analysis & scoring', to: '/services/report-checker' },
+  { icon: Mic, label: 'Speaking Assessment', description: 'Upload audio for pronunciation & fluency feedback', to: '/services/speaking-assessment' },
+  { icon: Sparkles, label: 'Text Enhancer', description: 'Upgrade your writing to Band 7+ with AI', to: '/services/text-enhancer' },
+  { icon: BookOpen, label: 'Sample Answers', description: 'Study high-scoring Band 7, 8 & 9 examples', to: '/services/sample-answers' },
 ];
 
 const RESOURCES: ServiceLink[] = [

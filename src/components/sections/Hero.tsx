@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 import { ArrowRight, Zap, BarChart3, ShieldCheck, Star } from 'lucide-react';
 import ScrollReveal from '../ui/ScrollReveal';
+import heroStudent from '@/assets/hero-student.png';
 
 /* ── Animated counter stats ── */
 const stats = [
@@ -41,9 +42,10 @@ function formatNumber(n: number, decimals = 0): string {
   return String(Math.round(n));
 }
 
-function AnimatedStats() {
-  const ref = useRef<HTMLDivElement>(null);
+function AnimatedStatValue({ value, decimals = 0, suffix }: { value: number; decimals?: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
   const [inView, setInView] = useState(false);
+  const current = useCountUp(value, 2000, decimals, inView);
 
   useEffect(() => {
     const el = ref.current;
@@ -56,25 +58,7 @@ function AnimatedStats() {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <div ref={ref} className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6">
-      {stats.map((s, _i) => (
-        <StatItem key={s.label} {...s} started={inView} />
-      ))}
-    </div>
-  );
-}
-
-function StatItem({ value, suffix, label, decimals = 0, started }: { value: number; suffix: string; label: string; decimals?: number; started: boolean }) {
-  const current = useCountUp(value, 2000, decimals, started);
-  return (
-    <div className="text-center sm:text-left">
-      <p className="text-white text-[22px] sm:text-[26px] font-extrabold font-heading leading-none tabular-nums">
-        {formatNumber(current, decimals)}{suffix}
-      </p>
-      <p className="mt-1 text-white/40 text-[12px] font-medium">{label}</p>
-    </div>
-  );
+  return <span ref={ref}>{formatNumber(current, decimals)}{suffix}</span>;
 }
 
 const rotatingLines = [
@@ -95,14 +79,14 @@ function BandScoreCard() {
   return (
     <div className="relative" aria-hidden="true">
       {/* Main card */}
-      <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)] p-6 md:p-8 w-[min(320px,85vw)] md:w-[360px]">
+      <div className="bg-white rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] p-5 w-[220px]">
         <div className="flex items-center justify-between mb-5">
           <div>
-            <p className="text-[12px] font-bold text-muted-foreground uppercase tracking-wider">Overall Band Score</p>
-            <p className="text-[48px] font-extrabold text-heading font-heading leading-none mt-1">7.5</p>
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Overall Band</p>
+            <p className="text-[36px] font-extrabold text-heading font-heading leading-none mt-1">7.5</p>
           </div>
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-            <span className="text-primary text-[24px] font-extrabold font-heading">A</span>
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary text-[18px] font-extrabold font-heading">A</span>
           </div>
         </div>
 
@@ -170,30 +154,19 @@ export default function Hero() {
 
   return (
     <section className="relative" aria-labelledby="hero-heading">
-      <div className="relative bg-bg-dark overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&h=900&fit=crop&crop=faces"
-            alt=""
-            role="presentation"
-            className="w-full h-full object-cover opacity-20"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A2E] via-[#1A1A2E]/90 to-[#1A1A2E]/60" />
-        </div>
-
-        <div className="container-main relative z-10 pt-14 md:pt-20 lg:pt-28 pb-36 md:pb-48">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
+      {/* Hero — light background with student photo */}
+      <div className="relative bg-bg-alt overflow-hidden">
+        <div className="container-main relative z-10 pt-10 md:pt-16 lg:pt-20 pb-32 md:pb-40">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center">
             {/* Left — Text */}
-            <ScrollReveal direction="up">
-              <span className="section-label-dark">
-                Free AI-Powered IELTS Scoring
+            <ScrollReveal direction="left">
+              <span className="section-label">
+                AI-Powered IELTS Preparation
               </span>
 
               <h1
                 id="hero-heading"
-                className="mt-6 text-white text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-extrabold italic"
+                className="mt-6 text-heading text-[34px] sm:text-[42px] md:text-[50px] leading-[1.1] font-heading font-extrabold"
               >
                 Get Your IELTS<br />
                 <span
@@ -208,12 +181,11 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* sr-only text for screen readers */}
               <span className="sr-only">
                 Get Your IELTS Band Score in Seconds, Essay Feedback Instantly, Speaking Score with AI, Writing Tips that Work
               </span>
 
-              <p className="mt-5 text-text-light text-[17px] max-w-[480px] leading-[1.75]">
+              <p className="mt-5 text-body text-[17px] max-w-[480px] leading-[1.75]">
                 Paste your essay. Our AI scores it on all 4 IELTS criteria and tells you
                 exactly how to improve. No signup required for your first check.
               </p>
@@ -228,23 +200,52 @@ export default function Hero() {
                 </a>
                 <a
                   href="https://app.ieltstop.com/samples"
-                  className="inline-flex items-center h-[54px] px-8 border border-white/25 text-white/90 text-[15px] font-semibold rounded-lg hover:bg-white/8 hover:border-white/40 transition-all duration-200"
+                  className="inline-flex items-center h-[54px] px-8 border-2 border-border text-heading text-[15px] font-semibold rounded-lg hover:border-heading transition-all duration-200"
                 >
                   View Sample Scores
                 </a>
               </div>
 
-              <div className="mt-4 flex items-center gap-2 text-text-dim text-[13px]">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <div className="mt-4 flex items-center gap-2 text-body text-[13px]">
+                <ShieldCheck className="w-4 h-4 text-success" />
                 <span>7-day money-back guarantee &middot; No credit card needed</span>
               </div>
 
-              <AnimatedStats />
+              {/* Stats row */}
+              <div ref={useRef<HTMLDivElement>(null)} className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-5">
+                {stats.map((s) => (
+                  <div key={s.label} className="text-left">
+                    <p className="text-heading text-[22px] sm:text-[26px] font-extrabold font-heading leading-none tabular-nums">
+                      <AnimatedStatValue value={s.value} decimals={s.decimals || 0} suffix={s.suffix} />
+                    </p>
+                    <p className="mt-1 text-body text-[12px] font-medium">{s.label}</p>
+                  </div>
+                ))}
+              </div>
             </ScrollReveal>
 
-            {/* Right — Mock band score card (desktop only) */}
-            <ScrollReveal direction="up" delay={0.2} className="hidden lg:flex justify-center">
-              <BandScoreCard />
+            {/* Right — Student photo + floating band score card */}
+            <ScrollReveal direction="right" delay={0.15} className="hidden lg:block">
+              <div className="relative flex justify-center">
+                {/* Student image */}
+                <img
+                  src={heroStudent}
+                  alt="IELTS student preparing for exam"
+                  className="relative z-10 w-[420px] h-auto object-contain drop-shadow-lg"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+                {/* Floating band score card */}
+                <div className="absolute top-8 -right-4 z-20">
+                  <BandScoreCard />
+                </div>
+                {/* Decorative background circle */}
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full opacity-40"
+                  style={{ background: 'radial-gradient(circle, rgba(232,119,58,0.12) 0%, transparent 70%)' }}
+                  aria-hidden="true"
+                />
+              </div>
             </ScrollReveal>
           </div>
         </div>
